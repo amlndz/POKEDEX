@@ -1,5 +1,11 @@
+import { Header } from "./components/Header/Header";
 function App() {
-  return <main>My Pokédex</main>
+  return (
+    <>
+      <Header />
+      <main></main>
+    </>
+  );
 }
 
-export default App
+export default App;
