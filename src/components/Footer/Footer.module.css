@@ -6,6 +6,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   background-color: #030303;
   color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .footer-msg {
+    margin: 1rem;
+  }
 }
