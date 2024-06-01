@@ -1,6 +1,37 @@
 .header {
   box-shadow: 0 0 1rem 0 #d6d4d6;
-  margin: 0;
-  padding: 0;
   background-color: #f5f4f5;
+  display: flex;
+}
+
+.imagen-pokeball {
+  width: 44px;
+  height: 44px;
+}
+
+.components {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .components {
+    width: 57.5rem;
+  }
+  .header-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 20px;
+  }
 }
