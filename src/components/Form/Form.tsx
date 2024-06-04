@@ -14,6 +14,7 @@ export const Form = () => {
         type="text"
         id="inputPokemonName"
         className={styles['inputNombre']}
+        placeholder="Search a Pokemon..."
       />
     </form>
   )
