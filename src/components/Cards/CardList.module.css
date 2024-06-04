@@ -1,0 +1,21 @@
+.containerCardsList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .containerCardsList {
+    gap: 32px;
+    width: 57.5rem;
+    margin-bottom: 7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerCardsList {
+    gap: 20px;
+    margin: 0rem 1rem 7rem 1rem;
+  }
+}
