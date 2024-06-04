@@ -1,0 +1,18 @@
+.containerError {
+  width: 266px;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.imagenError {
+  width: 64px;
+  height: 64px;
+}
+
+.textoError {
+  margin: 0;
+}
