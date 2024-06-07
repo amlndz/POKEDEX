@@ -11,7 +11,8 @@
 
 @media (min-width: 768px) {
   .containerDefaultcard {
-    flex: 1 1 285px;
+    /* flex: 1 1 285px; */
+    width: 285px;
     height: 400px;
     border: 8px solid #ffffff;
     border-radius: 24px;

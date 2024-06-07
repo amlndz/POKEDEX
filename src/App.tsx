@@ -5,14 +5,14 @@ import { CardList } from './components/Cards/CardsList'
 
 function App() {
   return (
-    <div className="app-container">
+    <>
       <Header />
       <main>
         <Form />
         <CardList />
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
 

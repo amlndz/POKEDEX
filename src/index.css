@@ -21,12 +21,9 @@ html,
   position: relative;
   margin: 0;
   padding: 0;
-}
-
-.app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Esto asegura que el contenedor sea al menos tan alto como la ventana */
+  min-height: 100vh;
 }
 
 main {
