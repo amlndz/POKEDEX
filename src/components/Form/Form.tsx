@@ -1,6 +1,10 @@
 import styles from './Form.module.css'
 
-export const Form = () => {
+type FormProps = {
+  onChange: (searchedPokemon: string) => void
+}
+
+export const Form: React.FC<FormProps> = ({ onChange }) => {
   return (
     <form className={styles['form']}>
       <label htmlFor="inputPokemonName" className={styles['labelInput']}>
@@ -15,6 +19,9 @@ export const Form = () => {
         id="inputPokemonName"
         className={styles['inputNombre']}
         placeholder="Search a Pokemon..."
+        onChange={event => {
+          onChange(event.target.value)
+        }}
       />
     </form>
   )

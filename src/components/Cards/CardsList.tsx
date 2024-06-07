@@ -24,7 +24,7 @@ export const CardList = () => {
     const fetchPokemons = async () => {
       try {
         const response = await axios.get<RespuestaApi>(
-          'https://pokeapi.co/api/v2/pokmon?limit=100000&offset=0',
+          'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',
         )
         setPokedex(response.data.results)
         setApiError(false)
@@ -36,6 +36,8 @@ export const CardList = () => {
     }
     fetchPokemons()
   }, [])
+
+  useEffect(() => {})
   return (
     <div className={style['containerCardsList']}>
       {apiError && <ErrorMSG />}
