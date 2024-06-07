@@ -18,19 +18,19 @@ type RespuestaApi = {
   results: PokedexDTO[]
 }
 export const CardList = () => {
-  const [pokedex, setPokedex] = useState<PokedexDTO[]>([])
+  const [pokedex, setPokedex] = useState<PokedexDTO[] | undefined>()
   const [apiError, setApiError] = useState(false)
   useEffect(() => {
     const fetchPokemons = async () => {
       try {
         const response = await axios.get<RespuestaApi>(
-          'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',
+          'https://pokeapi.co/api/v2/pokmon?limit=100000&offset=0',
         )
         setPokedex(response.data.results)
         setApiError(false)
       } catch {
         setApiError(true)
-        setPokedex([])
+        setPokedex(undefined)
         console.log('[!] - Error en la respuesta de la API')
       }
     }
@@ -40,9 +40,7 @@ export const CardList = () => {
     <div className={style['containerCardsList']}>
       {apiError && <ErrorMSG />}
 
-      {pokedex.map(pokemon => (
-        <p>{pokemon.name}</p>
-      ))}
+      {pokedex && pokedex.map(pokemon => <p>{pokemon.name}</p>)}
       {/* <DefaultCard /> */}
     </div>
   )
