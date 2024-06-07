@@ -9,6 +9,7 @@
   .containerCardsList {
     gap: 32px;
     width: 57.5rem;
+    height: 100%;
     margin-bottom: 4rem;
   }
 }
