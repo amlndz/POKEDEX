@@ -6,6 +6,23 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
+  line-height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .containerError {
+    margin-top: 171px;
+    margin-bottom: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerError {
+    margin-top: 154px;
+    margin-bottom: 266px;
+  }
 }
 
 .imagenError {
