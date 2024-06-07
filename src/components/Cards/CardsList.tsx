@@ -42,7 +42,8 @@ export const CardList = () => {
     <div className={style['containerCardsList']}>
       {apiError && <ErrorMSG />}
 
-      {pokedex && pokedex.map(pokemon => <p>{pokemon.name}</p>)}
+      {pokedex &&
+        pokedex.map((pokemon, index) => <p key={index}>{pokemon.name}</p>)}
       {/* <DefaultCard /> */}
     </div>
   )
