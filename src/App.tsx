@@ -5,14 +5,14 @@ import { CardList } from './components/Cards/CardsList'
 import { useState } from 'react'
 
 function App() {
-  const [searchedPokemon, setSearchedPokemon] = useState('')
-  console.log(searchedPokemon)
+  const [searched, setSearched] = useState('')
+  console.log(searched)
   return (
     <>
       <Header />
       <main>
-        <Form onChange={setSearchedPokemon} />
-        <CardList />
+        <Form onChange={setSearched} />
+        <CardList searched={searched} />
       </main>
       <Footer />
     </>

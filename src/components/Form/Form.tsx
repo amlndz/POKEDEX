@@ -1,7 +1,7 @@
 import styles from './Form.module.css'
 
 type FormProps = {
-  onChange: (searchedPokemon: string) => void
+  onChange: (searched: string) => void
 }
 
 export const Form: React.FC<FormProps> = ({ onChange }) => {

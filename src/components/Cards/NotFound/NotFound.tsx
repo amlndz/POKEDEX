@@ -1,6 +1,10 @@
 import style from './NotFound.module.css'
 
-export const NotFound = () => {
+type PropType = {
+  search: string
+}
+
+export const NotFound: React.FC<PropType> = ({ search }) => {
   return (
     <div className={style['containerNotFound']}>
       <img
@@ -8,7 +12,9 @@ export const NotFound = () => {
         src="./assets/PokeNot.svg"
         alt="Imagen de error"
       />
-      <p className={style['textoNotFound']}>There is not results for "....".</p>
+      <p className={style['textoNotFound']}>
+        There is not results for {search}.
+      </p>
     </div>
   )
 }
