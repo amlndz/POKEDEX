@@ -1,15 +1,30 @@
 // import { DefaultCard } from './DefaultCard/DefaultCard'
 import { ErrorMSG } from './Error/ErrorMSG'
-// import { NotFound } from './NotFound/NotFound'
 import style from './CardList.module.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { NotFound } from './NotFound/NotFound'
-// import { ErrorMSG } from './Error/ErrorMSG'
+import { PokemonCard } from './PokemonCard/PokemonCard'
+import { DefaultCard } from './DefaultCard/DefaultCard'
 
 type PokedexDTO = {
   name: string
-  // url: string
+  url: string
+}
+
+type PokemonDTO = {
+  name: string
+  id: number
+  image: string
+  type: string[]
+  weight: number
+  height: number
+  hp: number
+  attack: number
+  defense: number
+  spattack: number
+  spdefense: number
+  speed: number
 }
 
 type RespuestaApiPokedex = {
@@ -23,23 +38,27 @@ type CardSearchedType = {
   searched: string
 }
 
-type PokemonDTO = {
-  name: string
-}
-
 export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
   const [pokedex, setPokedex] = useState<PokedexDTO[] | undefined>()
-  const [pokemon, setPokemon] = useState<PokemonDTO | undefined>()
-  const [pokemons, setPokemons] = useState<PokemonDTO[] | undefined>()
   const [apiError, setApiError] = useState(false)
+  const [searchedError, setSearchedError] = useState(false)
+  const [loadedResults, setLoadedResults] = useState(false)
+  const [pokemons, setPokemons] = useState<PokemonDTO[] | undefined>([])
+  const [pokemon, setPokemon] = useState<PokemonDTO>()
   useEffect(() => {
     const fetchPokedex = async () => {
       try {
         const response = await axios.get<RespuestaApiPokedex>(
           'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',
         )
+        response.data.results.map(async pokemon => {
+          const response2 = await axios.get<PokemonDTO>(pokemon.url)
+        })
+
         setPokedex(response.data.results)
+        console.log(pokemons)
         setApiError(false)
+        setLoadedResults(true)
       } catch {
         setApiError(true)
         setPokedex(undefined)
@@ -47,43 +66,41 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
       }
     }
     fetchPokedex()
-  }, [])
-
-  useEffect(() => {
-    console.log('[+] Searched: ' + searched)
-    const fetchPokemons = async () => {
-      try {
-        pokedex?.forEach(async pokemon => {
-          if (pokemon.name.includes(searched)) {
-            console.log('DENTRO')
-            const response = await axios.get<PokemonDTO>(
-              `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`,
-            )
-            // console.log(response.data)
-            setPokemon(response.data)
-          }
-        })
-        console.log(pokemon)
-
-        setApiError(false)
-      } catch {
-        setApiError(true)
-        setPokedex(undefined)
-        setPokemons(undefined)
-        console.log('[!] - Error en la respuesta de la API')
-      }
-    }
-    fetchPokemons()
   }, [searched])
 
   return (
     <div className={style['containerCardsList']}>
       {apiError && <ErrorMSG />}
-
-      {pokemons &&
-        pokemons.map((pokemon, index) => <p key={index}>{pokemon.name}</p>)}
-      {/* <DefaultCard /> */}
-      {!pokemons && <NotFound search={searched} />}
+      {!loadedResults && (
+        <>
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+          <DefaultCard />
+        </>
+      )}
+      {loadedResults &&
+        // pokedex?.map(pokemon => {
+        //   if (pokemon.name.includes(searched)) {
+        //     searchedError ?? setSearchedError(false)
+        //     return (
+        //       <PokemonCard
+        //         key={pokemon.name}
+        //         searched={pokemon.name}
+        //         apiError={setApiError}
+        //       />
+        //     )
+        //   }
+        // })}
+        pokemons.map}
+      {searchedError && <NotFound search={searched} />}
     </div>
   )
 }
