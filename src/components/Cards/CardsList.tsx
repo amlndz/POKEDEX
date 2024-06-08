@@ -41,8 +41,8 @@ type CardSearchedType = {
 export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
   const [pokedex, setPokedex] = useState<PokedexDTO[] | undefined>()
   const [apiError, setApiError] = useState(false)
-  const [searchedError, setSearchedError] = useState(false)
-  const [loadedResults, setLoadedResults] = useState(false)
+  const [searchedError, setSearchedError] = useState<boolean>(false)
+  const [loadedResults, setLoadedResults] = useState<boolean>(false)
   const [pokemons, setPokemons] = useState<PokemonDTO[] | undefined>([])
   const [pokemon, setPokemon] = useState<PokemonDTO>()
   useEffect(() => {
@@ -86,7 +86,7 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
           <DefaultCard />
         </>
       )}
-      {loadedResults &&
+      {loadedResults && (
         // pokedex?.map(pokemon => {
         //   if (pokemon.name.includes(searched)) {
         //     searchedError ?? setSearchedError(false)
@@ -99,7 +99,8 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
         //     )
         //   }
         // })}
-        pokemons.map}
+        <p>cargado</p>
+      )}
       {searchedError && <NotFound search={searched} />}
     </div>
   )
