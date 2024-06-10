@@ -153,9 +153,9 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
             .map(pokemon => (
               <PokemonCard key={pokemon.id} pokemon={pokemon} />
             ))}
+          {searchedError && <NotFound search={searched} />}
         </>
       )}
-      {searchedError && <NotFound search={searched} />}
     </div>
   )
 }

@@ -17,10 +17,12 @@ type PokemonCardProps = {
   pokemon: PokemonDTO
 }
 
+const DEFAULT_IMAGE_URL = './assets/pokeballDefault.png'
+
 export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   return (
     <div className="pokemon-card">
-      <img src={pokemon.image} alt={pokemon.name} />
+      <img src={pokemon.image || DEFAULT_IMAGE_URL} alt={pokemon.name} />
       <h2>{pokemon.name}</h2>
       <p>Type: {pokemon.type.join(', ')}</p>
       <p>Weight: {pokemon.weight}</p>
