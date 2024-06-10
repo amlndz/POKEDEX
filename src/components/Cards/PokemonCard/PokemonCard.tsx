@@ -1,31 +1,36 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-
-type PropType = {
-  searched: string
-  apiError: (state: boolean) => void
+type PokemonDTO = {
+  name: string
+  id: number
+  image: string
+  type: string[]
+  weight: number
+  height: number
+  hp: number
+  attack: number
+  defense: number
+  spattack: number
+  spdefense: number
+  speed: number
 }
 
-type PokemonDTO = {}
+type PokemonCardProps = {
+  pokemon: PokemonDTO
+}
 
-export const PokemonCard: React.FC<PropType> = ({ searched, apiError }) => {
-  const [pokemon, setPokemon] = useState<PokemonDTO | undefined>()
-  useEffect(() => {
-    const fetchPokemons = async () => {
-      try {
-        const response = await axios.get<PokemonDTO>(
-          `https://pokeapi.co/api/v2/pokemon/${searched}`,
-        )
-        console.log(response.data)
-        setPokemon(response.data)
-        apiError(false)
-      } catch {
-        console.log('[!] - Error en la respuesta de la API')
-        apiError(true)
-      }
-    }
-    fetchPokemons()
-  }, [searched])
-
-  return <>{pokemon && <p>SEARCHED: {searched}</p>}</>
+export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
+  return (
+    <div className="pokemon-card">
+      <img src={pokemon.image} alt={pokemon.name} />
+      <h2>{pokemon.name}</h2>
+      <p>Type: {pokemon.type.join(', ')}</p>
+      <p>Weight: {pokemon.weight}</p>
+      <p>Height: {pokemon.height}</p>
+      <p>HP: {pokemon.hp}</p>
+      <p>Attack: {pokemon.attack}</p>
+      <p>Defense: {pokemon.defense}</p>
+      <p>Special Attack: {pokemon.spattack}</p>
+      <p>Special Defense: {pokemon.spdefense}</p>
+      <p>Speed: {pokemon.speed}</p>
+    </div>
+  )
 }
