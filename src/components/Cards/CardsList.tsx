@@ -126,8 +126,6 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
 
   return (
     <div className={style['containerCardsList']}>
-      {apiError && <ErrorMSG />}
-
       {loading && (
         <>
           <DefaultCard />
@@ -140,9 +138,10 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
           <DefaultCard />
           <DefaultCard />
           <DefaultCard />
-          <DefaultCard />
         </>
       )}
+
+      {!loading && apiError && <ErrorMSG />}
 
       {!loading && !apiError && (
         <>
