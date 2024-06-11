@@ -6,6 +6,7 @@
 
   height: 400px;
   padding: 8px;
+  box-shadow: 0px 2px 3px -1px #7d3bec12, 0px 5px 10px -2px #7d3bec26;
 
   background-color: aqua;
   border-radius: 24px;

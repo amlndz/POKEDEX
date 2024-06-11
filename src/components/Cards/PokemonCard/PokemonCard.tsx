@@ -12,7 +12,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
     <div className={style['pokemon-card']} data-testid="pokemon-card">
       <div className={style['pokemon-header']}>
         <h2>{pokemon.name}</h2>
-        <h2>{pokemon.id.toString().padStart(3, '0')}</h2>
+        <h2>#{pokemon.id.toString().padStart(3, '0')}</h2>
       </div>
       <div className={style['pokemon-content']}>
         <img
