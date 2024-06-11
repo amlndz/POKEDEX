@@ -72,7 +72,7 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
     const fetchPokedex = async () => {
       try {
         const response = await axios.get<RespuestaApiPokedex>(
-          'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',
+          'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0',
         )
 
         const pokemonPromises = response.data.results.map(async pokemon => {
@@ -122,7 +122,7 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
       pokemon.name.toLowerCase().includes(searched.toLowerCase()),
     )
     setSearchedError(!searchedExists)
-  }, [pokemons, searched])
+  }, [searched])
 
   return (
     <div className={style['containerCardsList']}>
