@@ -60,9 +60,12 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
         )
 
         const pokemonPromises = response.data.results.map(async pokemon => {
-          const response2 = await axios.get<PokemonDTO>(pokemon.url)
-          const pokemonData = response2.data
+          const respuesta = await axios.get<PokemonDTO>(pokemon.url)
+          return respuesta.data
+        })
 
+        const pokemonsData = await Promise.all(pokemonPromises)
+        pokemonsData.map(pokemonData => {
           return {
             name: pokemonData.name,
             id: pokemonData.id,
@@ -95,7 +98,6 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
           }
         })
 
-        const pokemonData = await Promise.all(pokemonPromises)
         setPokemons(pokemonData)
         setApiError(false)
       } catch (error) {
