@@ -40,13 +40,13 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
             {pokemon.height}
           </p>
         </div>
-        <div className={style['pokemon-stats']}>
-          <p>
-            HP <span>{pokemon.stats.hp}</span>
-            <span>
-              <progress max={255} value={pokemon.stats.hp}></progress>
-            </span>
-          </p>
+        <ul className={style['pokemon-stats']}>
+          <li>
+            <div className={style['pokemon-stat']}>
+              <p>HP</p> <span>{pokemon.stats.hp}</span>
+            </div>
+            <progress max={255} value={pokemon.stats.hp}></progress>
+          </li>
 
           <p>
             ATK <span>{pokemon.stats.attack}</span>
@@ -55,9 +55,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
 
           <p>
             DEF <span>{pokemon.stats.defense}</span>
-            <span>
-              <progress max={255} value={pokemon.stats.defense}></progress>
-            </span>
+            <progress max={255} value={pokemon.stats.defense}></progress>
           </p>
 
           <p>
@@ -67,18 +65,14 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
 
           <p>
             SDF <span>{pokemon.stats.spdefense}</span>
-            <span>
-              <progress max={255} value={pokemon.stats.spdefense}></progress>
-            </span>
+            <progress max={255} value={pokemon.stats.spdefense}></progress>
           </p>
 
           <p>
             SPD <span>{pokemon.stats.speed}</span>
-            <span>
-              <progress max={255} value={pokemon.stats.speed}></progress>
-            </span>
+            <progress max={255} value={pokemon.stats.speed}></progress>
           </p>
-        </div>
+        </ul>
       </div>
     </div>
   )
