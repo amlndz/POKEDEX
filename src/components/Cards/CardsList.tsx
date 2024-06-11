@@ -115,7 +115,7 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
       pokemon.name.toLowerCase().includes(searched.toLowerCase()),
     )
     setSearchedError(!searchedExists)
-  }, [searched])
+  }, [pokemons, searched])
 
   return (
     <div className={style['containerCardsList']}>
