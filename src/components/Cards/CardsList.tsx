@@ -5,20 +5,19 @@ import axios from 'axios'
 import { NotFound } from './NotFound/NotFound'
 import { PokemonCard } from './PokemonCard/PokemonCard'
 import { DefaultCard } from './DefaultCard/DefaultCard'
+import { Pokemon } from './PokemonType'
 
-type RespuestaApiPokedex = {
+type PokedexDTO = {
   count: number
   next: string | null
   previous: string | null
-  results: PokedexDTO[]
+  results: Array<{
+    name: string
+    url: string
+  }>
 }
 
-type PokedexDTO = {
-  name: string
-  url: string
-}
-
-type RespuestaPokemonAPI = {
+type PokemonDTO = {
   name: string
   id: number
   sprites: {
@@ -43,21 +42,6 @@ type RespuestaPokemonAPI = {
   }[]
 }
 
-type PokemonDTO = {
-  name: string
-  id: number
-  image: string
-  type: string[]
-  weight: number
-  height: number
-  hp: number
-  attack: number
-  defense: number
-  spattack: number
-  spdefense: number
-  speed: number
-}
-
 type CardSearchedType = {
   searched: string
 }
@@ -66,47 +50,56 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
   const [apiError, setApiError] = useState(false)
   const [searchedError, setSearchedError] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [pokemons, setPokemons] = useState<PokemonDTO[]>([])
+  const [pokemons, setPokemons] = useState<Pokemon[]>([])
 
   useEffect(() => {
     const fetchPokedex = async () => {
       try {
-        const response = await axios.get<RespuestaApiPokedex>(
-          'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',
+        const response = await axios.get<PokedexDTO>(
+          'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0',
         )
 
         const pokemonPromises = response.data.results.map(async pokemon => {
-          const response2 = await axios.get<RespuestaPokemonAPI>(pokemon.url)
-          const pokemonData = response2.data
+          const { data } = await axios.get<PokemonDTO>(pokemon.url)
+          return data
+        })
 
+        const pokemonsDTO = await Promise.all(pokemonPromises)
+
+        const pokemonsData = pokemonsDTO.map<Pokemon>(pokemonData => {
           return {
             name: pokemonData.name,
             id: pokemonData.id,
             image: pokemonData.sprites.other['official-artwork'].front_default,
             type: pokemonData.types.map(typeInfo => typeInfo.type.name),
-            weight: pokemonData.weight,
-            height: pokemonData.height,
-            hp: pokemonData.stats.find(stat => stat.stat.name === 'hp')
-              ?.base_stat,
-            attack: pokemonData.stats.find(stat => stat.stat.name === 'attack')
-              ?.base_stat,
-            defense: pokemonData.stats.find(
-              stat => stat.stat.name === 'defense',
-            )?.base_stat,
-            spattack: pokemonData.stats.find(
-              stat => stat.stat.name === 'special-attack',
-            )?.base_stat,
-            spdefense: pokemonData.stats.find(
-              stat => stat.stat.name === 'special-defense',
-            )?.base_stat,
-            speed: pokemonData.stats.find(stat => stat.stat.name === 'speed')
-              ?.base_stat,
-          } as PokemonDTO
+            weight: pokemonData.weight / 10,
+            height: pokemonData.height / 10,
+            stats: {
+              hp:
+                pokemonData.stats.find(stat => stat.stat.name === 'hp')
+                  ?.base_stat ?? 0,
+              attack:
+                pokemonData.stats.find(stat => stat.stat.name === 'attack')
+                  ?.base_stat ?? 0,
+              defense:
+                pokemonData.stats.find(stat => stat.stat.name === 'defense')
+                  ?.base_stat ?? 0,
+              spattack:
+                pokemonData.stats.find(
+                  stat => stat.stat.name === 'special-attack',
+                )?.base_stat ?? 0,
+              spdefense:
+                pokemonData.stats.find(
+                  stat => stat.stat.name === 'special-defense',
+                )?.base_stat ?? 0,
+              speed:
+                pokemonData.stats.find(stat => stat.stat.name === 'speed')
+                  ?.base_stat ?? 0,
+            },
+          }
         })
-
-        const pokemonData = await Promise.all(pokemonPromises)
-        setPokemons(pokemonData)
         setApiError(false)
+        setPokemons(pokemonsData)
       } catch (error) {
         setApiError(true)
         console.error('[!] - Error en la respuesta de la API')
@@ -122,7 +115,7 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
       pokemon.name.toLowerCase().includes(searched.toLowerCase()),
     )
     setSearchedError(!searchedExists)
-  }, [pokemons, searched])
+  }, [searched])
 
   return (
     <div className={style['containerCardsList']}>
