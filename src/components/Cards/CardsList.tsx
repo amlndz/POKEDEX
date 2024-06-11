@@ -60,19 +60,20 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
         )
 
         const pokemonPromises = response.data.results.map(async pokemon => {
-          const respuesta = await axios.get<PokemonDTO>(pokemon.url)
-          return respuesta.data
+          const { data } = await axios.get<PokemonDTO>(pokemon.url)
+          return data
         })
 
-        const pokemonsData = await Promise.all(pokemonPromises)
-        pokemonsData.map(pokemonData => {
+        const pokemonsDTO = await Promise.all(pokemonPromises)
+
+        const pokemonsData = pokemonsDTO.map<Pokemon>(pokemonData => {
           return {
             name: pokemonData.name,
             id: pokemonData.id,
             image: pokemonData.sprites.other['official-artwork'].front_default,
             type: pokemonData.types.map(typeInfo => typeInfo.type.name),
-            weight: pokemonData.weight,
-            height: pokemonData.height,
+            weight: pokemonData.weight / 10,
+            height: pokemonData.height / 10,
             stats: {
               hp:
                 pokemonData.stats.find(stat => stat.stat.name === 'hp')
@@ -97,9 +98,8 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
             },
           }
         })
-
-        setPokemons(pokemonData)
         setApiError(false)
+        setPokemons(pokemonsData)
       } catch (error) {
         setApiError(true)
         console.error('[!] - Error en la respuesta de la API')
