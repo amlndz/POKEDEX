@@ -14,12 +14,12 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         <h2>{pokemon.name}</h2>
         <h2>{pokemon.id}</h2>
       </div>
-      <img
-        className={style['pokemon-image']}
-        src={pokemon.image || DEFAULT_IMAGE_URL}
-        alt={pokemon.name}
-      />
       <div className={style['pokemon-content']}>
+        <img
+          className={style['pokemon-image']}
+          src={pokemon.image || DEFAULT_IMAGE_URL}
+          alt={pokemon.name}
+        />
         <div className={style['pokemon-pills']}>
           <p>
             {/* <img src="" alt="imagen tipo 1" /> */}
@@ -27,16 +27,17 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           </p>
           <p>
             {/* <img src="" alt="imagen tipo 2" /> */}
-            {pokemon?.type[1]}
+            {pokemon.type[1]}
           </p>
         </div>
         <div className={style['pokemon-measures']}>
           <p>
-            <img src="" />
+            <img src="./assets/Weight.svg" />
             {pokemon.weight}
           </p>
           <p>
-            <img src="" /> {pokemon.height}
+            <img src="./assets/Ruler.svg" alt="Icono regla" />
+            {pokemon.height}
           </p>
         </div>
         <div className={style['pokemon-stats']}>
@@ -49,9 +50,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
 
           <p>
             ATK <span>{pokemon.stats.attack}</span>
-            <span>
-              <progress max={255} value={pokemon.stats.attack}></progress>
-            </span>
+            <progress max={255} value={pokemon.stats.attack}></progress>
           </p>
 
           <p>

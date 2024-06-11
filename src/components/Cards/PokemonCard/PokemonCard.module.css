@@ -1,12 +1,16 @@
 .pokemon-card {
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 18px;
+
   height: 400px;
+
+  padding: 8px;
+
   background-color: aqua;
   border-radius: 24px;
-  gap: 18px;
-  padding: 8px;
+  line-height: 0px;
 }
 
 .pokemon-header h2::first-letter {
@@ -26,11 +30,19 @@
   height: 250px;
   display: flex;
   flex-direction: column;
-  line-height: 0px;
   /* align-items: center; */
+}
+.pokemon-measures {
+  display: flex;
+}
+
+.pokemon-measures img {
+  width: 20px;
+  height: 20px;
 }
 
 .pokemon-image {
+  margin-top: -100px;
   height: 140px;
   width: 140px;
 }
