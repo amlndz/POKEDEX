@@ -12,7 +12,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
     <div className={style['pokemon-card']} data-testid="pokemon-card">
       <div className={style['pokemon-header']}>
         <h2>{pokemon.name}</h2>
-        <h2>{pokemon.id}</h2>
+        <h2>{pokemon.id.toString().padStart(3, '0')}</h2>
       </div>
       <div className={style['pokemon-content']}>
         <img
@@ -21,23 +21,17 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           alt={pokemon.name}
         />
         <div className={style['pokemon-pills']}>
-          <p>
-            {/* <img src="" alt="imagen tipo 1" /> */}
-            {pokemon.type[0]}
-          </p>
-          <p>
-            {/* <img src="" alt="imagen tipo 2" /> */}
-            {pokemon.type[1]}
-          </p>
+          <p>{pokemon.type[0]}</p>
+          {pokemon.type[1] && <p>{pokemon.type[1]}</p>}
         </div>
         <div className={style['pokemon-measures']}>
           <p>
-            <img src="./assets/Weight.svg" />
-            {pokemon.weight}
+            <img src="./assets/Weight.svg" alt="Weight icon" />
+            {pokemon.weight} kg
           </p>
           <p>
-            <img src="./assets/Ruler.svg" alt="Icono regla" />
-            {pokemon.height}
+            <img src="./assets/Ruler.svg" alt="Height icon" />
+            {pokemon.height} m
           </p>
         </div>
         <ul className={style['pokemon-stats']}>
@@ -47,31 +41,36 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
             </div>
             <progress max={255} value={pokemon.stats.hp}></progress>
           </li>
-
-          <p>
-            ATK <span>{pokemon.stats.attack}</span>
+          <li>
+            <div className={style['pokemon-stat']}>
+              <p>ATK</p> <span>{pokemon.stats.attack}</span>
+            </div>
             <progress max={255} value={pokemon.stats.attack}></progress>
-          </p>
-
-          <p>
-            DEF <span>{pokemon.stats.defense}</span>
+          </li>
+          <li>
+            <div className={style['pokemon-stat']}>
+              <p>DEF</p> <span>{pokemon.stats.defense}</span>
+            </div>
             <progress max={255} value={pokemon.stats.defense}></progress>
-          </p>
-
-          <p>
-            SAT <span>{pokemon.stats.spattack}</span>
+          </li>
+          <li>
+            <div className={style['pokemon-stat']}>
+              <p>SAT</p> <span>{pokemon.stats.spattack}</span>
+            </div>
             <progress max={255} value={pokemon.stats.spattack}></progress>
-          </p>
-
-          <p>
-            SDF <span>{pokemon.stats.spdefense}</span>
+          </li>
+          <li>
+            <div className={style['pokemon-stat']}>
+              <p>SDF</p> <span>{pokemon.stats.spdefense}</span>
+            </div>
             <progress max={255} value={pokemon.stats.spdefense}></progress>
-          </p>
-
-          <p>
-            SPD <span>{pokemon.stats.speed}</span>
+          </li>
+          <li>
+            <div className={style['pokemon-stat']}>
+              <p>SPD</p> <span>{pokemon.stats.speed}</span>
+            </div>
             <progress max={255} value={pokemon.stats.speed}></progress>
-          </p>
+          </li>
         </ul>
       </div>
     </div>
