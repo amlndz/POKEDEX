@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
-import App from '../../../src/App'
+import App from '../../../../src/App'
 import '@testing-library/jest-dom'
 import { expect } from 'vitest'
 import axios from 'axios'
