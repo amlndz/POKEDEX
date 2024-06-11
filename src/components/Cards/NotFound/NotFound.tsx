@@ -13,7 +13,7 @@ export const NotFound: React.FC<PropType> = ({ search }) => {
         alt="Imagen de error"
       />
       <p className={style['textoNotFound']}>
-        There is not results for {search}.
+        There is not results for "{search}".
       </p>
     </div>
   )

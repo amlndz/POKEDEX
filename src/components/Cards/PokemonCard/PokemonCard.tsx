@@ -9,7 +9,7 @@ const DEFAULT_IMAGE_URL = './assets/pokeballDefault.png'
 
 export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   return (
-    <div className={style['pokemon-card']}>
+    <div className={style['pokemon-card']} data-testid="pokemon-card">
       <div className={style['pokemon-header']}>
         <h2>{pokemon.name}</h2>
         <h2>{pokemon.id}</h2>
