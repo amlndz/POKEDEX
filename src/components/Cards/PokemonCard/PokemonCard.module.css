@@ -114,6 +114,7 @@
   width: 100%;
   height: 6px;
   background-color: #eaeaeb;
+  border-radius: 4px;
 }
 
 .pokemon-stats li progress::-webkit-progress-value {
@@ -122,6 +123,7 @@
 }
 .pokemon-stats li progress::-webkit-progress-bar {
   background-color: #eaeaeb;
+  border-radius: 4px;
 }
 
 .pokemon-stat p {
