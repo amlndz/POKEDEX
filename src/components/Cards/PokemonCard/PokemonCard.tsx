@@ -10,10 +10,18 @@ const DEFAULT_IMAGE_URL = './assets/pokeballDefault.png'
 export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   const formatearStat = (stat: number) =>
     stat < 100 ? `0${stat}` : stat.toString()
+
+  const tipoPrincipal = pokemon.type[0]
+  const cardBackgroundColor = PokemonColorIcono[tipoPrincipal].color
+
   return (
-    <div className={style['pokemon-card']} data-testid="pokemon-card">
+    <div
+      className={style['pokemon-card']}
+      data-testid="pokemon-card"
+      style={{ backgroundColor: cardBackgroundColor }}
+    >
       <div className={style['pokemon-header']}>
-        <h2 className={style['pokemon-nombre']}>{pokemon.name}</h2>
+        <h2 className={style['pokemon-name']}>{pokemon.name}</h2>
         <h2 className={style['pokemon-id']}>
           #{pokemon.id.toString().padStart(3, '0')}
         </h2>
