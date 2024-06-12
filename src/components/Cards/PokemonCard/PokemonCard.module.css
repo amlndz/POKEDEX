@@ -84,6 +84,26 @@
   width: 100%;
 }
 
+.pokemon-type {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  padding: 4px 8px;
+  border-radius: 100px;
+  color: #ffffff;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.type-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.pokemon-pills p::first-letter {
+  text-transform: uppercase;
+}
+
 .pokemon-stats {
   display: flex;
   flex-direction: column;

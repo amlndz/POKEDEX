@@ -1,6 +1,6 @@
+import { PokemonColorIcono } from '../PokemonColorIcono'
 import { Pokemon } from '../PokemonType'
 import style from './PokemonCard.module.css'
-
 type PokemonCardProps = {
   pokemon: Pokemon
 }
@@ -25,8 +25,25 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           alt={pokemon.name}
         />
         <div className={style['pokemon-pills']}>
-          <p>{pokemon.type[0]}</p>
-          {pokemon.type[1] && <p>{pokemon.type[1]}</p>}
+          {pokemon.type.map(type => {
+            const pokemonColorIcono = PokemonColorIcono[type]
+            return (
+              <div
+                key={type}
+                className={style['pokemon-type']}
+                style={{
+                  backgroundColor: pokemonColorIcono.color,
+                }}
+              >
+                <img
+                  src={pokemonColorIcono.icon}
+                  alt={`${type} icon`}
+                  className={style['type-icon']}
+                />
+                <p>{type}</p>
+              </div>
+            )
+          })}
         </div>
         <div className={style['pokemon-measures']}>
           <p>
