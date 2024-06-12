@@ -56,12 +56,17 @@
 .pokemon-measures p {
   display: flex;
   align-items: center;
-  padding-right: 16px;
+  gap: 4px;
 }
 
-.pokemon-measures img {
+.measures-height,
+.measures-weight {
   width: 20px;
   height: 20px;
+}
+
+.measures-separator {
+  margin: 0 16px;
 }
 
 .pokemon-image {

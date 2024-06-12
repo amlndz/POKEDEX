@@ -30,11 +30,24 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         </div>
         <div className={style['pokemon-measures']}>
           <p>
-            <img src="./assets/Weight.svg" alt="Weight icon" />
+            <img
+              className={style['measures-weight']}
+              src="./assets/Weight.svg"
+              alt="Weight icon"
+            />
             {pokemon.weight} kg
           </p>
+          <img
+            className={style['measures-separator']}
+            src="./assets/Separator.svg"
+            alt="Separator"
+          ></img>
           <p>
-            <img src="./assets/Ruler.svg" alt="Height icon" />
+            <img
+              className={style['measures-height']}
+              src="./assets/Ruler.svg"
+              alt="Height icon"
+            />
             {pokemon.height} m
           </p>
         </div>
