@@ -1,6 +1,6 @@
 import { Header } from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
-import { Form } from './components/Form/Form'
+import { SearchedBox } from './components/SearchedBox/SearchedBox'
 import { CardList } from './components/Cards/CardsList'
 import { useState } from 'react'
 
@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <main>
-        <Form onChange={setSearched} />
+        <SearchedBox onChange={setSearched} />
         <CardList searched={searched} />
       </main>
       <Footer />

@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { NotFound } from './NotFound/NotFound'
 import { PokemonCard } from './PokemonCard/PokemonCard'
-import { DefaultCard } from './DefaultCard/DefaultCard'
+import {} from './DefaultCard/DefaultCard'
 import { Pokemon } from './PokemonType'
+import { Skeleton } from './DefaultCard/Skeleton'
 
 type PokedexDTO = {
   count: number
@@ -119,20 +120,7 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
 
   return (
     <div className={style['containerCardsList']}>
-      {loading && (
-        <>
-          <DefaultCard />
-          <DefaultCard />
-          <DefaultCard />
-          <DefaultCard />
-          <DefaultCard />
-          <DefaultCard />
-          <DefaultCard />
-          <DefaultCard />
-          <DefaultCard />
-          <DefaultCard />
-        </>
-      )}
+      {loading && <Skeleton />}
 
       {!loading && apiError && <ErrorMSG />}
 
