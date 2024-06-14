@@ -1,11 +1,11 @@
-import style from './PokemonCard.module.css'
-import { Pokemon } from '../PokemonType'
+import style from '../PokemonCard.module.css'
+import { Pokemon } from '../../PokemonType'
 
-type PokemonCardProps = {
+type PokemonStatsProps = {
   pokemon: Pokemon
 }
 
-export const PokemonStats: React.FC<PokemonCardProps> = ({ pokemon }) => {
+export const PokemonStats: React.FC<PokemonStatsProps> = ({ pokemon }) => {
   const formatearStat = (stat: number) =>
     stat < 100 ? `0${stat}` : stat.toString()
 

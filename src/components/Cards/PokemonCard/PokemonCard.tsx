@@ -1,7 +1,9 @@
 import { PokemonColorIcon } from '../PokemonColorIcon'
 import { Pokemon } from '../PokemonType'
-import { PokemonStats } from './PokemonStats'
+import { PokemonStats } from './PokemonCardComponents/PokemonStats'
 import style from './PokemonCard.module.css'
+import { PokemonType } from './PokemonCardComponents/PokemonType'
+import { PokemonMeasures } from './PokemonCardComponents/PokemonMeasures'
 type PokemonCardProps = {
   pokemon: Pokemon
 }
@@ -30,50 +32,8 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           src={pokemon.image || DEFAULT_IMAGE_URL}
           alt={pokemon.name}
         />
-        <div className={style['pokemon-pills']}>
-          {pokemon.type.map(type => {
-            const pokemonColorIcono = PokemonColorIcon[type]
-            return (
-              <div
-                key={type}
-                className={style['pokemon-type']}
-                style={{
-                  backgroundColor: pokemonColorIcono.color,
-                }}
-              >
-                <img
-                  src={pokemonColorIcono.icon}
-                  alt={`${type} icon`}
-                  className={style['type-icon']}
-                />
-                <p>{type}</p>
-              </div>
-            )
-          })}
-        </div>
-        <div className={style['pokemon-measures']}>
-          <p>
-            <img
-              className={style['measures-weight']}
-              src="./assets/Weight.svg"
-              alt="Weight icon"
-            />
-            {pokemon.weight} kg
-          </p>
-          <img
-            className={style['measures-separator']}
-            src="./assets/Separator.svg"
-            alt="Separator"
-          ></img>
-          <p>
-            <img
-              className={style['measures-height']}
-              src="./assets/Ruler.svg"
-              alt="Height icon"
-            />
-            {pokemon.height} m
-          </p>
-        </div>
+        <PokemonType pokemon={pokemon} />
+        <PokemonMeasures pokemon={pokemon} />
         <PokemonStats pokemon={pokemon} />
       </div>
     </div>
