@@ -5,8 +5,11 @@ type FormProps = {
 }
 
 export const Form: React.FC<FormProps> = ({ onChange }) => {
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+  }
   return (
-    <form className={styles['form']}>
+    <form className={styles['form']} onSubmit={handleSubmit}>
       <label htmlFor="inputPokemonName" className={styles['labelInput']}>
         <img
           src="./assets/lupa.svg"
