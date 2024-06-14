@@ -6,7 +6,6 @@ import { useState } from 'react'
 
 function App() {
   const [searched, setSearched] = useState('')
-  console.log(searched)
   return (
     <>
       <Header />
