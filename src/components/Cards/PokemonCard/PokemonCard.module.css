@@ -50,6 +50,8 @@
   align-items: center;
   width: 100%;
   margin: 0;
+  height: 32px;
+  padding: 8px;
 }
 
 .pokemon-measures p {
@@ -81,6 +83,7 @@
   justify-content: center;
   gap: 8px;
   width: 100%;
+  padding: 8px;
 }
 
 .pokemon-type {
@@ -108,8 +111,9 @@
   flex-direction: column;
   list-style: none;
   width: 100%;
-  padding: 0 8px;
+  padding: 8px;
   margin: 0;
+  gap: 2px;
 }
 
 .pokemon-stat {
@@ -126,6 +130,7 @@
   align-items: center;
   gap: 8px;
   margin: 0;
+  height: 16px;
 }
 
 .pokemon-stats li progress {
