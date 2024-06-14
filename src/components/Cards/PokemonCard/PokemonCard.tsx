@@ -1,4 +1,4 @@
-import { PokemonColorIcono } from '../PokemonColorIcono'
+import { PokemonColorIcon } from '../PokemonColorIcon'
 import { Pokemon } from '../PokemonType'
 import { PokemonStats } from './PokemonStats'
 import style from './PokemonCard.module.css'
@@ -10,7 +10,7 @@ const DEFAULT_IMAGE_URL = './assets/pokeballDefault.png'
 
 export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   const tipoPrincipal = pokemon.type[0]
-  const cardBackgroundColor = PokemonColorIcono[tipoPrincipal].color
+  const cardBackgroundColor = PokemonColorIcon[tipoPrincipal].color
 
   return (
     <div
@@ -32,7 +32,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
         />
         <div className={style['pokemon-pills']}>
           {pokemon.type.map(type => {
-            const pokemonColorIcono = PokemonColorIcono[type]
+            const pokemonColorIcono = PokemonColorIcon[type]
             return (
               <div
                 key={type}

@@ -5,7 +5,7 @@ type PokemonTypeStyles = {
   }
 }
 
-export const PokemonColorIcono: PokemonTypeStyles = {
+export const PokemonColorIcon: PokemonTypeStyles = {
   poison: {
     color: '#9756DC',
     icon: './assets/Tipos/Poison.svg',
