@@ -2,6 +2,7 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import { pokemonAPIRepository } from './pokemonAPIRepository'
 import { Pokemon } from '../../../../domain/models/pokemon/Pokemon'
+import * as mapService from './pokemonMapper'
 
 describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
   test('Comprobar que la funcion getPokedex devuelve correctamente un array de Pokedex', async () => {
@@ -73,9 +74,35 @@ describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
       },
     }
 
+    const mockeMap = vi
+      .spyOn(mapService, 'mapPokemonDTOToPokemon')
+      .mockReturnValueOnce(expectedPokemon)
+
     const pokemon = await pokemonAPIRepository.getPokemon(
       'https://pokeapi.co/api/v2/pokemon/1/',
     )
+    expect(mockeMap).toHaveBeenCalledWith({
+      name: 'bulbasaur',
+      id: 1,
+      sprites: {
+        other: {
+          'official-artwork': {
+            front_default: 'bulbasaur-image-url',
+          },
+        },
+      },
+      types: [{ type: { name: 'grass' } }, { type: { name: 'poison' } }],
+      weight: 69,
+      height: 7,
+      stats: [
+        { base_stat: 45, stat: { name: 'hp' } },
+        { base_stat: 49, stat: { name: 'attack' } },
+        { base_stat: 49, stat: { name: 'defense' } },
+        { base_stat: 65, stat: { name: 'special-attack' } },
+        { base_stat: 65, stat: { name: 'special-defense' } },
+        { base_stat: 45, stat: { name: 'speed' } },
+      ],
+    })
     expect(pokemon).toStrictEqual(expectedPokemon)
   })
 })
