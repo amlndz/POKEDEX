@@ -1,3 +1,5 @@
+import { PokemonBuilder } from '../../../../../tests/builders/pokemonBuilder'
+import { PokemonDTOBuilder } from '../../../../../tests/builders/pokemonDTOBuilder'
 import { Pokemon } from '../../../../domain/models/Pokemon'
 import { PokemonDTO } from './domain/pokemonDTO'
 import { mapPokemonDTOToPokemon } from './pokemonMapper'
@@ -87,47 +89,9 @@ describe('Comprobar funcionamiento del pokemonMapper', () => {
     expect(pokemonMapped).toStrictEqual(pokemon)
   })
   test('Dado un pokemonDTO con todos los valores nulos devuelve un Pokemon sustituyendo dicho valor por 0', () => {
-    const pokemonDTO: PokemonDTO = {
-      name: 'bulbasaur',
-      id: 1,
-      sprites: {
-        other: {
-          'official-artwork': { front_default: 'ruta/a/imagen' },
-        },
-      },
-      types: [
-        {
-          type: {
-            name: 'grass',
-          },
-        },
-        {
-          type: {
-            name: 'poison',
-          },
-        },
-      ],
-      weight: 69,
-      height: 7,
-      stats: [],
-    }
+    const pokemonDTO: PokemonDTO = new PokemonDTOBuilder().build()
 
-    const pokemon: Pokemon = {
-      name: 'bulbasaur',
-      id: 1,
-      image: 'ruta/a/imagen',
-      type: ['grass', 'poison'],
-      weight: 6.9,
-      height: 0.7,
-      stats: {
-        hp: 0,
-        attack: 0,
-        defense: 0,
-        spattack: 0,
-        spdefense: 0,
-        speed: 0,
-      },
-    }
+    const pokemon: Pokemon = new PokemonBuilder().build()
 
     const pokemonMapped = mapPokemonDTOToPokemon(pokemonDTO)
     expect(pokemonMapped).toStrictEqual(pokemon)
