@@ -15,8 +15,8 @@ const obtainPokemons = async (): Promise<Pokemon[]> => {
   return pokemonsData
 }
 
-const init = (repoNew: PokemonRepository) => {
-  repo = repoNew
+const init = (newRepo: PokemonRepository) => {
+  repo = newRepo
 }
 
 export const pokemonService = {
