@@ -18,6 +18,11 @@ describe('Comprobar funcionamiento del pokemonMapper', () => {
             name: 'grass',
           },
         },
+        {
+          type: {
+            name: 'poison',
+          },
+        },
       ],
       weight: 69,
       height: 7,
@@ -65,7 +70,7 @@ describe('Comprobar funcionamiento del pokemonMapper', () => {
       name: 'bulbasaur',
       id: 1,
       image: 'ruta/a/imagen',
-      type: ['grass'],
+      type: ['grass', 'poison'],
       weight: 6.9,
       height: 0.7,
       stats: {
@@ -94,6 +99,11 @@ describe('Comprobar funcionamiento del pokemonMapper', () => {
         {
           type: {
             name: 'grass',
+          },
+        },
+        {
+          type: {
+            name: 'poison',
           },
         },
       ],
@@ -137,7 +147,7 @@ describe('Comprobar funcionamiento del pokemonMapper', () => {
       name: 'bulbasaur',
       id: 1,
       image: 'ruta/a/imagen',
-      type: ['grass'],
+      type: ['grass', 'poison'],
       weight: 6.9,
       height: 0.7,
       stats: {
