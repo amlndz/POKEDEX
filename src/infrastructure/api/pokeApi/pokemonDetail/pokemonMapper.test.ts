@@ -109,38 +109,7 @@ describe('Comprobar funcionamiento del pokemonMapper', () => {
       ],
       weight: 69,
       height: 7,
-      stats: [
-        {
-          base_stat: 45,
-          stat: {
-            name: 'hp',
-          },
-        },
-        {
-          base_stat: 49,
-          stat: {
-            name: 'attack',
-          },
-        },
-        {
-          base_stat: 65,
-          stat: {
-            name: 'special-attack',
-          },
-        },
-        {
-          base_stat: 65,
-          stat: {
-            name: 'special-defense',
-          },
-        },
-        {
-          base_stat: 45,
-          stat: {
-            name: 'speed',
-          },
-        },
-      ],
+      stats: [],
     }
 
     const pokemon: Pokemon = {
@@ -151,12 +120,12 @@ describe('Comprobar funcionamiento del pokemonMapper', () => {
       weight: 6.9,
       height: 0.7,
       stats: {
-        hp: 45,
-        attack: 49,
+        hp: 0,
+        attack: 0,
         defense: 0,
-        spattack: 65,
-        spdefense: 65,
-        speed: 45,
+        spattack: 0,
+        spdefense: 0,
+        speed: 0,
       },
     }
 

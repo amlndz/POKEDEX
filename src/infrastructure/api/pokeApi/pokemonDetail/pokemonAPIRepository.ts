@@ -10,7 +10,7 @@ const getPokedex = async (): Promise<Pokedex[]> => {
   const response = await axios.get<PokedexDTO>(
     'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0',
   )
-  const pokedex = await response.data.results
+  const pokedex = response.data.results
   return pokedex
 }
 
