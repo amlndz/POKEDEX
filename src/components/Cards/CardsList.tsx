@@ -6,7 +6,7 @@ import { PokemonCard } from './PokemonCard/PokemonCard'
 import {} from './DefaultCard/DefaultCard'
 import { Pokemon } from '../../domain/models/pokemon/Pokemon'
 import { Skeleton } from './DefaultCard/Skeleton'
-import { ApiRequest } from './ApiRequest'
+import { fetchPokemons } from '../../domain/services/pokemonService'
 
 type CardSearchedType = {
   searched: string
@@ -21,7 +21,7 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
   useEffect(() => {
     const fetchPokedex = async () => {
       try {
-        const pokemonsData = await ApiRequest()
+        const pokemonsData = await fetchPokemons()
         setApiError(false)
         setPokemons(pokemonsData)
       } catch (error) {
