@@ -4,23 +4,22 @@ import { mapPokemonDTOToPokemon } from './pokemonMapper'
 import { PokemonDTO } from './domain/pokemonDTO'
 import { PokedexDTO } from '../pokedex/domain/pokedexDTO'
 import { Pokedex } from '../../../../domain/models/pokemon/Pokedex'
+import { PokemonRepository } from '../../../../domain/models/pokemon/pokemonRepository'
 
-const fetchPokedex = async (): Promise<Pokedex[]> => {
+const getPokedex = async (): Promise<Pokedex[]> => {
   const response = await axios.get<PokedexDTO>(
     'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0',
   )
-  return response.data.results
+  const pokedex = await response.data.results
+  return pokedex
 }
 
-const fetchPokemonDetail = async (url: string): Promise<Pokemon> => {
-  const { data } = await axios.get<PokemonDTO>(url)
+const getPokemon = async (id: string): Promise<Pokemon> => {
+  const { data } = await axios.get<PokemonDTO>(id)
   return mapPokemonDTOToPokemon(data)
 }
 
-export const pokemonDetailRepository = {
-  fetchPokemonDetail,
-}
-
-export const pokedexRepository = {
-  fetchPokedex,
+export const pokemonAPIRepository: PokemonRepository = {
+  getPokedex,
+  getPokemon,
 }
