@@ -1,9 +1,9 @@
 import { PokemonColorIcon } from '../PokemonColorIcon'
-import { Pokemon } from '../PokemonType'
-import { PokemonStats } from './PokemonCardComponents/PokemonStats'
+import { Pokemon } from '../../../domain/models/pokemon/Pokemon'
+import { PokemonStats } from './Components/PokemonStats'
 import style from './PokemonCard.module.css'
-import { PokemonType } from './PokemonCardComponents/PokemonType'
-import { PokemonMeasures } from './PokemonCardComponents/PokemonMeasures'
+import { PokemonType } from './Components/PokemonType'
+import { PokemonMeasures } from './Components/PokemonMeasures'
 type PokemonCardProps = {
   pokemon: Pokemon
 }

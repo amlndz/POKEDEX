@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { NotFound } from './NotFound/NotFound'
 import { PokemonCard } from './PokemonCard/PokemonCard'
 import {} from './DefaultCard/DefaultCard'
-import { Pokemon } from './PokemonType'
+import { Pokemon } from '../../domain/models/pokemon/Pokemon'
 import { Skeleton } from './DefaultCard/Skeleton'
 import { ApiRequest } from './ApiRequest'
 
