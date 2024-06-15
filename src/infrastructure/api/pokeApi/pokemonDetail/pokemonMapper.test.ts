@@ -1,4 +1,4 @@
-import { Pokemon } from '../../../../domain/models/pokemon/Pokemon'
+import { Pokemon } from '../../../../domain/models/Pokemon'
 import { PokemonDTO } from './domain/pokemonDTO'
 import { mapPokemonDTOToPokemon } from './pokemonMapper'
 

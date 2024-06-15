@@ -1,5 +1,5 @@
-import { Pokedex } from './Pokedex'
-import { Pokemon } from './Pokemon'
+import { Pokedex } from '../models/Pokedex'
+import { Pokemon } from '../models/Pokemon'
 
 type getPokedex = () => Promise<Pokedex[]>
 type getPokemon = (id: string) => Promise<Pokemon>

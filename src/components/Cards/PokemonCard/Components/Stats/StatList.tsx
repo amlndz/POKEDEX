@@ -1,5 +1,5 @@
 import style from '../../PokemonCard.module.css'
-import { Pokemon } from '../../../../../domain/models/pokemon/Pokemon'
+import { Pokemon } from '../../../../../domain/models/Pokemon'
 import { Stat } from './Stat'
 
 type PokemonStatsProps = {

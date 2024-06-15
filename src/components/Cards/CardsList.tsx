@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { NotFound } from './NotFound/NotFound'
 import { PokemonCard } from './PokemonCard/PokemonCard'
 import {} from './DefaultCard/DefaultCard'
-import { Pokemon } from '../../domain/models/pokemon/Pokemon'
+import { Pokemon } from '../../domain/models/Pokemon'
 import { Skeleton } from './DefaultCard/Skeleton'
 import { pokemonService } from '../../domain/services/pokemonService'
 

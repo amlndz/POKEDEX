@@ -1,5 +1,5 @@
 import { PokemonColorIcon } from '../PokemonColorIcon'
-import { Pokemon } from '../../../domain/models/pokemon/Pokemon'
+import { Pokemon } from '../../../domain/models/Pokemon'
 import { PokemonStats } from './Components/Stats/StatList'
 import style from './PokemonCard.module.css'
 import { PokemonType } from './Components/PokemonType'

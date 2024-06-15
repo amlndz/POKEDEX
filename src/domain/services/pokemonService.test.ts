@@ -1,7 +1,7 @@
 import { pokemonService } from './pokemonService'
-import { PokemonRepository } from '../models/pokemon/pokemonRepository'
-import { Pokedex } from '../models/pokemon/Pokedex'
-import { Pokemon } from '../models/pokemon/Pokemon'
+import { PokemonRepository } from '../repository/pokemonRepository'
+import { Pokedex } from '../models/Pokedex'
+import { Pokemon } from '../models/Pokemon'
 
 const getPokedex = async (): Promise<Pokedex[]> => {
   return [{ name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }]

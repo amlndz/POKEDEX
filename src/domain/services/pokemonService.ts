@@ -1,5 +1,5 @@
-import { Pokemon } from '../models/pokemon/Pokemon'
-import { PokemonRepository } from '../models/pokemon/pokemonRepository'
+import { Pokemon } from '../models/Pokemon'
+import { PokemonRepository } from '../repository/pokemonRepository'
 
 let repo: PokemonRepository
 

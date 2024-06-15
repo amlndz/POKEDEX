@@ -1,7 +1,7 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import { pokemonAPIRepository } from './pokemonAPIRepository'
-import { Pokemon } from '../../../../domain/models/pokemon/Pokemon'
+import { Pokemon } from '../../../../domain/models/Pokemon'
 import * as mapService from './pokemonMapper'
 
 describe('Comprobar funcionamiento del pokemonAPIRepository', () => {

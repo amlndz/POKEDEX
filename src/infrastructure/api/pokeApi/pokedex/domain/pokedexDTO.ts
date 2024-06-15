@@ -1,4 +1,4 @@
-import { Pokedex } from '../../../../../domain/models/pokemon/Pokedex'
+import { Pokedex } from '../../../../../domain/models/Pokedex'
 
 export type PokedexDTO = {
   count: number
