@@ -2,28 +2,13 @@ import { pokemonService } from './pokemonService'
 import { PokemonRepository } from '../repository/pokemonRepository'
 import { Pokedex } from '../models/Pokedex'
 import { Pokemon } from '../models/Pokemon'
-
+import { PokemonBuilder } from '../../../tests/builders/pokemonBuilder'
 const getPokedex = async (): Promise<Pokedex[]> => {
   return [{ name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }]
 }
 
 const getPokemon = async (): Promise<Pokemon> => {
-  return {
-    name: 'bulbasaur',
-    id: 1,
-    image: 'bulbasaur-image-url',
-    type: ['grass', 'poison'],
-    weight: 6.9,
-    height: 0.7,
-    stats: {
-      hp: 45,
-      attack: 49,
-      defense: 49,
-      spattack: 65,
-      spdefense: 65,
-      speed: 45,
-    },
-  }
+  return new PokemonBuilder().build()
 }
 
 const testAPIRepo: PokemonRepository = {
@@ -34,23 +19,6 @@ const testAPIRepo: PokemonRepository = {
 test('Comprobar que la funcion obtainPokemon del Service devuelve un Pokemon', async () => {
   pokemonService.init(testAPIRepo)
   const pokemons = await pokemonService.obtainPokemons()
-  const expectedPokemons = [
-    {
-      name: 'bulbasaur',
-      id: 1,
-      image: 'bulbasaur-image-url',
-      type: ['grass', 'poison'],
-      weight: 6.9,
-      height: 0.7,
-      stats: {
-        hp: 45,
-        attack: 49,
-        defense: 49,
-        spattack: 65,
-        spdefense: 65,
-        speed: 45,
-      },
-    },
-  ]
-  expect(pokemons).toStrictEqual(expectedPokemons)
+  const expectedPokemons = new PokemonBuilder().build()
+  expect(pokemons).toStrictEqual([expectedPokemons])
 })
