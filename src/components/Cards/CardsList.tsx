@@ -21,7 +21,7 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
   useEffect(() => {
     const fetchPokedex = async () => {
       try {
-        const pokemonsData = await pokemonService.fetchPokemons()
+        const pokemonsData = await pokemonService.obtainPokemons()
         setApiError(false)
         setPokemons(pokemonsData)
       } catch (error) {

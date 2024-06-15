@@ -3,7 +3,7 @@ import { PokemonRepository } from '../models/pokemon/pokemonRepository'
 
 let repo: PokemonRepository
 
-const fetchPokemons = async (): Promise<Pokemon[]> => {
+const obtainPokemons = async (): Promise<Pokemon[]> => {
   const pokemonsDTO = await repo.getPokedex()
 
   const pokemonsData = await Promise.all(
@@ -20,6 +20,6 @@ const init = (repoNew: PokemonRepository) => {
 }
 
 export const pokemonService = {
-  fetchPokemons,
+  obtainPokemons,
   init,
 }
