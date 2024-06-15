@@ -1,6 +1,6 @@
 import { PokemonColorIcon } from '../PokemonColorIcon'
 import { Pokemon } from '../../../domain/models/pokemon/Pokemon'
-import { PokemonStats } from './Components/PokemonStats'
+import { PokemonStats } from './Components/Stats/StatList'
 import style from './PokemonCard.module.css'
 import { PokemonType } from './Components/PokemonType'
 import { PokemonMeasures } from './Components/PokemonMeasures'
