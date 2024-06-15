@@ -1,13 +1,12 @@
 import { Pokemon } from '../models/pokemon/Pokemon'
-import { pokemonDetailRepository } from '../../infrastructure/api/pokeApi/pokemonDetail/pokemonDetailRepository'
-import axios from 'axios'
-import { PokedexDTO } from '../../infrastructure/api/pokeApi/pokedex/domain/pokedexDTO'
+import {
+  pokedexRepository,
+  pokemonDetailRepository,
+} from '../../infrastructure/api/pokeApi/pokemonDetail/pokemonDetailRepository'
 
 export const fetchPokemons = async (): Promise<Pokemon[]> => {
-  const response = await axios.get<PokedexDTO>(
-    'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0',
-  )
-  const pokemonsDTO = response.data.results
+  const pokemonsDTO = await pokedexRepository.fetchPokedex()
+
   const pokemonsData = await Promise.all(
     pokemonsDTO.map(async pokemonDTO => {
       const pokemonDetail = await pokemonDetailRepository.fetchPokemonDetail(
