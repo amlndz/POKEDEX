@@ -5,8 +5,8 @@ export class PokemonBuilder {
 
   constructor() {
     this.pokemon = {
-      name: '',
-      id: 0,
+      name: 'bulbasaur',
+      id: 1,
       image: 'bulbasaur-image-url',
       type: ['grass', 'poison'],
       weight: 6.9,

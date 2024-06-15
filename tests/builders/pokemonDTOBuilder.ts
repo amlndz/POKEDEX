@@ -10,8 +10,7 @@ export class PokemonDTOBuilder {
       sprites: {
         other: {
           'official-artwork': {
-            front_default:
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
+            front_default: 'bulbasaur-image-url',
           },
         },
       },
@@ -66,6 +65,17 @@ export class PokemonDTOBuilder {
     return this
   }
 
+  withoutStat(statName: string) {
+    this.pokemonDTO.stats = this.pokemonDTO.stats.filter(
+      (stat: { stat: { name: string } }) => stat.stat.name !== statName,
+    )
+    return this
+  }
+
+  withoutStats() {
+    this.pokemonDTO.stats = []
+    return this
+  }
   build() {
     return this.pokemonDTO
   }
