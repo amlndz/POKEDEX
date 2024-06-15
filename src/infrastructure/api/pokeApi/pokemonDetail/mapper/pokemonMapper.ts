@@ -1,5 +1,5 @@
-import { Pokemon } from '../../../../domain/models/Pokemon'
-import { PokemonDTO } from './domain/pokemonDTO'
+import { Pokemon } from '../../../../../domain/models/Pokemon'
+import { PokemonDTO } from '../domain/pokemonDTO'
 
 export const mapPokemonDTOToPokemon: (
   dto: PokemonDTO,

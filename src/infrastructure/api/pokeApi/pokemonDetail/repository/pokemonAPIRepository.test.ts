@@ -1,11 +1,11 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 import { pokemonAPIRepository } from './pokemonAPIRepository'
-import { Pokemon } from '../../../../domain/models/Pokemon'
-import * as mapService from './pokemonMapper'
-import { PokemonDTOBuilder } from '../../../../../tests/builders/pokemonDTOBuilder'
-import { PokemonDTO } from './domain/pokemonDTO'
-import { PokemonBuilder } from '../../../../../tests/builders/pokemonBuilder'
+import { Pokemon } from '../../../../../domain/models/Pokemon'
+import * as mapService from '../mapper/pokemonMapper'
+import { PokemonDTOBuilder } from '../../../../../../tests/builders/pokemonDTOBuilder'
+import { PokemonDTO } from '../domain/pokemonDTO'
+import { PokemonBuilder } from '../../../../../../tests/builders/pokemonBuilder'
 
 describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
   test('Comprobar que la funcion getPokedex devuelve correctamente un array de Pokedex', async () => {

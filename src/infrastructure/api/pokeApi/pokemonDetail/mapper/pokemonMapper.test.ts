@@ -1,7 +1,7 @@
-import { PokemonBuilder } from '../../../../../tests/builders/pokemonBuilder'
-import { PokemonDTOBuilder } from '../../../../../tests/builders/pokemonDTOBuilder'
-import { Pokemon } from '../../../../domain/models/Pokemon'
-import { PokemonDTO } from './domain/pokemonDTO'
+import { PokemonBuilder } from '../../../../../../tests/builders/pokemonBuilder'
+import { PokemonDTOBuilder } from '../../../../../../tests/builders/pokemonDTOBuilder'
+import { Pokemon } from '../../../../../domain/models/Pokemon'
+import { PokemonDTO } from '../domain/pokemonDTO'
 import { mapPokemonDTOToPokemon } from './pokemonMapper'
 
 describe('Comprobar funcionamiento del pokemonMapper', () => {

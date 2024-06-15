@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { Pokemon } from '../../../../domain/models/Pokemon'
-import { mapPokemonDTOToPokemon } from './pokemonMapper'
-import { PokemonDTO } from './domain/pokemonDTO'
-import { PokedexDTO } from '../pokedex/domain/pokedexDTO'
-import { Pokedex } from '../../../../domain/models/Pokedex'
-import { PokemonRepository } from '../../../../domain/repository/pokemonRepository'
+import { Pokemon } from '../../../../../domain/models/Pokemon'
+import { mapPokemonDTOToPokemon } from '../mapper/pokemonMapper'
+import { PokemonDTO } from '../domain/pokemonDTO'
+import { PokedexDTO } from '../../pokedex/domain/pokedexDTO'
+import { Pokedex } from '../../../../../domain/models/Pokedex'
+import { PokemonRepository } from '../../../../../domain/repository/pokemonRepository'
 
 const getPokedex = async (): Promise<Pokedex[]> => {
   const response = await axios.get<PokedexDTO>(
