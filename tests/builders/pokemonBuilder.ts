@@ -22,7 +22,7 @@ export class PokemonBuilder {
     }
   }
 
-  withname(name: string) {
+  withName(name: Pokemon['name']) {
     this.pokemon.name = name
     return this
   }
@@ -52,14 +52,7 @@ export class PokemonBuilder {
     return this
   }
 
-  withStats(stats: {
-    hp: number
-    attack: number
-    defense: number
-    spattack: number
-    spdefense: number
-    speed: number
-  }) {
+  withStats(stats: Pokemon['stats']) {
     this.pokemon.stats = stats
     return this
   }

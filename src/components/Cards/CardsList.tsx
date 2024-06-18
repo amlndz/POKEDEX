@@ -14,7 +14,6 @@ type CardSearchedType = {
 
 export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
   const [apiError, setApiError] = useState(false)
-  const [searchedError, setSearchedError] = useState(false)
   const [loading, setLoading] = useState(true)
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
 
@@ -22,7 +21,6 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
     const fetchPokedex = async () => {
       try {
         const pokemonsData = await pokemonService.obtainPokemons()
-        setApiError(false)
         setPokemons(pokemonsData)
       } catch (error) {
         setApiError(true)
@@ -34,31 +32,41 @@ export const CardList: React.FC<CardSearchedType> = ({ searched }) => {
     fetchPokedex()
   }, [])
 
-  useEffect(() => {
-    const searchedExists = pokemons.find(pokemon =>
-      pokemon.name.toLowerCase().includes(searched.toLowerCase()),
+  if (apiError) {
+    return (
+      <div className={style.containerCardsList}>
+        <ErrorMSG />
+      </div>
     )
-    setSearchedError(!searchedExists)
-  }, [pokemons, searched])
+  }
+
+  if (loading) {
+    return (
+      <div className={style.containerCardsList}>
+        <Skeleton />
+      </div>
+    )
+  }
+
+  const searchedPokemons = pokemons.filter(pokemon =>
+    pokemon.name.toLowerCase().includes(searched.toLowerCase()),
+  )
+
+  const hasSearchError = searchedPokemons.length === 0
+
+  if (hasSearchError) {
+    return (
+      <div className={style.containerCardsList}>
+        <NotFound search={searched} />
+      </div>
+    )
+  }
 
   return (
-    <div className={style['containerCardsList']}>
-      {loading && <Skeleton />}
-
-      {!loading && apiError && <ErrorMSG />}
-
-      {!loading && !apiError && (
-        <>
-          {pokemons
-            .filter(pokemon =>
-              pokemon.name.toLowerCase().includes(searched.toLowerCase()),
-            )
-            .map(pokemon => (
-              <PokemonCard key={pokemon.id} pokemon={pokemon} />
-            ))}
-          {searchedError && <NotFound search={searched} />}
-        </>
-      )}
+    <div className={style.containerCardsList}>
+      {searchedPokemons.map(pokemon => (
+        <PokemonCard key={pokemon.id} pokemon={pokemon} />
+      ))}
     </div>
   )
 }

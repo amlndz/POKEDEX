@@ -12,6 +12,7 @@ const obtainPokemons = async (): Promise<Pokemon[]> => {
       return pokemonDetail
     }),
   )
+
   return pokemonsData
 }
 
