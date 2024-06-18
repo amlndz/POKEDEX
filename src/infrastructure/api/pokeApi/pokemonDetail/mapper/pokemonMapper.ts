@@ -8,7 +8,7 @@ export const mapPokemonDTOToPokemon: (
     name: pokemonData.name,
     id: pokemonData.id,
     image: pokemonData.sprites.other['official-artwork'].front_default,
-    type: pokemonData.types.map(typeInfo => typeInfo.type.name),
+    types: pokemonData.types.map(typeInfo => typeInfo.type.name),
     weight: pokemonData.weight / 10,
     height: pokemonData.height / 10,
     stats: {

@@ -11,7 +11,7 @@ type PokemonCardProps = {
 const DEFAULT_IMAGE_URL = './assets/pokeballDefault.png'
 
 export const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
-  const tipoPrincipal = pokemon.type[0]
+  const tipoPrincipal = pokemon.types[0]
   const cardBackgroundColor = PokemonColorIcon[tipoPrincipal].color
 
   return (

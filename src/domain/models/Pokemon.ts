@@ -22,7 +22,7 @@ export type Pokemon = {
   name: string
   id: number
   image: string
-  type: PokemonType[]
+  types: PokemonType[]
   weight: number
   height: number
   stats: {

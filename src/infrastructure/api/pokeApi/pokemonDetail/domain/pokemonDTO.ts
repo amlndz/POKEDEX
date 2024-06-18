@@ -1,3 +1,5 @@
+import { PokemonType } from '../../../../../domain/models/Pokemon'
+
 export type PokemonDTO = {
   name: string
   id: number
@@ -10,7 +12,7 @@ export type PokemonDTO = {
   }
   types: {
     type: {
-      name: string
+      name: PokemonType
     }
   }[]
   weight: number

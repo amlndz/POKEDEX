@@ -9,7 +9,7 @@ type PokemonTypeProps = {
 export const PokemonType: React.FC<PokemonTypeProps> = ({ pokemon }) => {
   return (
     <div className={style['pokemon-pills']}>
-      {pokemon.type.map(type => {
+      {pokemon.types.map(type => {
         const pokemonColorIcono = PokemonColorIcon[type]
         return (
           <div

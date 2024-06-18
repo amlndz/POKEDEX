@@ -1,4 +1,4 @@
-import { Pokemon } from '../../src/domain/models/Pokemon'
+import { Pokemon, PokemonType } from '../../src/domain/models/Pokemon'
 
 export class PokemonBuilder {
   private pokemon: Pokemon
@@ -8,7 +8,7 @@ export class PokemonBuilder {
       name: 'bulbasaur',
       id: 1,
       image: 'bulbasaur-image-url',
-      type: ['grass', 'poison'],
+      types: ['grass', 'poison'],
       weight: 6.9,
       height: 0.7,
       stats: {
@@ -37,8 +37,8 @@ export class PokemonBuilder {
     return this
   }
 
-  withType(type: string[]) {
-    this.pokemon.type = type
+  withType(types: PokemonType[]) {
+    this.pokemon.types = types
     return this
   }
 
