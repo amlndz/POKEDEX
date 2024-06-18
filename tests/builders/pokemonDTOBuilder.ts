@@ -1,3 +1,4 @@
+import { PokemonType } from '../../src/domain/models/Pokemon'
 import { PokemonDTO } from '../../src/infrastructure/api/pokeApi/pokemonDetail/domain/pokemonDTO'
 
 export class PokemonDTOBuilder {
@@ -45,7 +46,7 @@ export class PokemonDTOBuilder {
     return this
   }
 
-  withTypes(types: { type: { name: string } }[]) {
+  withTypes(types: { type: { name: PokemonType } }[]) {
     this.pokemonDTO.types = types
     return this
   }
