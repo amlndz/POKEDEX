@@ -3,7 +3,7 @@ import { CardList } from '../Cards/CardsList'
 import { SearchedBox } from '../SearchedBox/SearchedBox'
 import { Pokemon } from '../../domain/models/Pokemon'
 import { pokemonService } from '../../domain/services/pokemonService'
-import style from './CardList.module.css'
+import style from './Home.module.css'
 
 export const Home = () => {
   const [hasSearched, setHasSearched] = useState('')
