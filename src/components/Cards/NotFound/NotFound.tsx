@@ -6,13 +6,13 @@ type PropType = {
 
 export const NotFound: React.FC<PropType> = ({ search }) => {
   return (
-    <div className={style['containerNotFound']}>
+    <div className={style.containerNotFound}>
       <img
-        className={style['imagenNotFound']}
+        className={style.imagenNotFound}
         src="./assets/PokeNot.svg"
         alt="Imagen de error"
       />
-      <p className={style['textoNotFound']}>
+      <p className={style.textoNotFound}>
         There is not results for "{search}".
       </p>
     </div>

@@ -2,8 +2,8 @@ import style from './Header.module.css'
 
 export const Header = () => {
   return (
-    <header className={style['header']}>
-      <div className={style['components']}>
+    <header className={style.header}>
+      <div className={style.components}>
         <img
           src="./assets/pokeball.svg"
           alt="Imagen pokeball"
