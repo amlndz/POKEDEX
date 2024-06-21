@@ -176,6 +176,7 @@ describe('Test Home', () => {
     })
 
     test('Si un usuario introduce letras que coinciden con mas de un pokemon se muestran estos (ej: char, se deberia de ver Charmander, Charmeleon, Charizard)', async () => {
+      const bulbasaur = new PokemonBuilder().build()
       const charmander = new PokemonBuilder()
         .withName('charmander')
         .withId(4)
@@ -191,14 +192,16 @@ describe('Test Home', () => {
 
       const serviceMock = vi
         .spyOn(pokemonService, 'obtainPokemons')
-        .mockResolvedValue([charmander, charmeleon, charizard])
+        .mockResolvedValue([bulbasaur, charmander, charmeleon, charizard])
 
       render(<Home />)
       expect(serviceMock).toHaveBeenCalledTimes(1)
 
+      const previousPokemonCards = await screen.findAllByTestId('pokemon-card')
+      expect(previousPokemonCards.length).toBe(4)
+
       const input = screen.getByRole('textbox')
       fireEvent.change(input, { target: { value: 'char' } })
-
       await waitFor(() => {
         expect(screen.getByText('Charmander')).toBeInTheDocument()
         expect(screen.getByText('Charmeleon')).toBeInTheDocument()
