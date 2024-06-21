@@ -23,6 +23,8 @@
   flex: 1;
   border: 0;
   outline: none;
+  font-family: 'Kanit';
+  font-size: 16px;
 }
 
 .labelInput {

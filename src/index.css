@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
+
+ul {
+  padding-left: 0;
+}
+
 body,
 html,
 #root {

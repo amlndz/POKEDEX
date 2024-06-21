@@ -34,10 +34,10 @@
 .pokemon-content {
   background-color: #ffffff;
   border-radius: 20px;
-  height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 8px 8px 12px 8px;
 }
 
 .pokemon-measures {
@@ -47,7 +47,7 @@
   width: 100%;
   margin: 0;
   height: 32px;
-  padding: 8px;
+  margin-bottom: 8px;
 }
 
 .pokemon-measures p {
@@ -80,7 +80,8 @@
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .pokemon-type {
@@ -104,8 +105,7 @@
   flex-direction: column;
   list-style: none;
   width: 100%;
-  padding: 8px;
-  margin: 0;
+  margin: 0px;
   gap: 2px;
 }
 
