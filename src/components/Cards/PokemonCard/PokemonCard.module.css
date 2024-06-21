@@ -67,6 +67,7 @@
 }
 
 .pokemon-image {
+  -webkit-user-drag: none;
   margin-top: -85px;
   height: 140px;
   width: 140px;

@@ -11,12 +11,12 @@
   line-height: 20px;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .containerNotFound {
     margin-top: 171px;
     margin-bottom: 300px;
   }
-}
+} */
 
 @media (max-width: 768px) {
   .containerNotFound {
