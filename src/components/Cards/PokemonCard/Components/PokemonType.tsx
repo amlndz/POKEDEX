@@ -7,6 +7,9 @@ type PokemonTypeProps = {
 }
 
 export const PokemonType: React.FC<PokemonTypeProps> = ({ pokemon }) => {
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
   return (
     <div className={style['pokemon-pills']}>
       {pokemon.types.map(type => {
@@ -24,7 +27,7 @@ export const PokemonType: React.FC<PokemonTypeProps> = ({ pokemon }) => {
               alt={`${type} icon`}
               className={style['type-icon']}
             />
-            <p>{type}</p>
+            <p>{capitalizeFirstLetter(type)}</p>
           </div>
         )
       })}

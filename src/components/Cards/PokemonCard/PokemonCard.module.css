@@ -31,10 +31,6 @@
   opacity: 50%;
 }
 
-.pokemon-header h2::first-letter {
-  text-transform: uppercase;
-}
-
 .pokemon-content {
   background-color: #ffffff;
   border-radius: 20px;
@@ -100,10 +96,6 @@
 .type-icon {
   width: 16px;
   height: 16px;
-}
-
-.pokemon-pills p::first-letter {
-  text-transform: uppercase;
 }
 
 .pokemon-stats {
