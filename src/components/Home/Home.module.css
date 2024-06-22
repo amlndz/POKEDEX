@@ -1,5 +1,6 @@
 .containerCardsList {
   display: grid;
+  justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(17.8125rem, 1fr));
   gap: 20px;
 }
