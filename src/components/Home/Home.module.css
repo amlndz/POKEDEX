@@ -4,6 +4,11 @@
   grid-template-columns: repeat(auto-fit, minmax(17.8125rem, 1fr));
   gap: 20px;
 }
+.containerSearch {
+  display: flex;
+
+  justify-items: center;
+}
 
 @media (width > 1300px) {
   .containerCardsList {
