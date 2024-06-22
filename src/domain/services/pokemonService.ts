@@ -4,11 +4,11 @@ import { PokemonRepository } from '../repository/PokemonRepository'
 let repo: PokemonRepository
 
 const obtainPokemons = async (): Promise<Pokemon[]> => {
-  const pokemonsDTO = await repo.getPokedex()
+  const pokedexDTO = await repo.getPokedex()
 
   const pokemonsData = await Promise.all(
-    pokemonsDTO.map(async pokemonDTO => {
-      const pokemonDetail = await repo.getPokemon(pokemonDTO.url)
+    pokedexDTO.map(async pokemonDTO => {
+      const pokemonDetail = await repo.getPokemon(pokemonDTO)
       return pokemonDetail
     }),
   )

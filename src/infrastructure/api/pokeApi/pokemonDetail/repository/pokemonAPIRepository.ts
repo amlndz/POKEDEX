@@ -11,12 +11,15 @@ const getPokedex = async (): Promise<Pokedex[]> => {
     'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0',
   )
   const pokedex = response.data.results
+  localStorage.setItem('pokedex', JSON.stringify(pokedex))
   return pokedex
 }
 
-const getPokemon = async (id: string): Promise<Pokemon> => {
-  const { data } = await axios.get<PokemonDTO>(id)
-  return mapPokemonDTOToPokemon(data)
+const getPokemon = async (pokemonDTO: Pokedex): Promise<Pokemon> => {
+  const { data } = await axios.get<PokemonDTO>(pokemonDTO.url)
+  const pokemonMapped = mapPokemonDTOToPokemon(data)
+  localStorage.setItem(pokemonMapped.name, JSON.stringify(pokemonMapped))
+  return pokemonMapped
 }
 
 export const pokemonAPIRepository: PokemonRepository = {
