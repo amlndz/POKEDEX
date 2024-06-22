@@ -1,11 +1,12 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import { pokemonAPIRepository } from './pokemonAPIRepository'
 import { Pokemon } from '../../../../../domain/models/Pokemon'
 import * as mapService from '../mapper/pokemonMapper'
 import { PokemonDTOBuilder } from '../../../../../../tests/builders/pokemonDTOBuilder'
 import { PokemonDTO } from '../domain/pokemonDTO'
 import { PokemonBuilder } from '../../../../../../tests/builders/pokemonBuilder'
+import { pokemonHybridRepository } from '../../../../localStorage/repository/pokemonHybridRepository'
+import { Pokedex } from '../../../../../domain/models/Pokedex'
 
 describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
   test('Comprobar que la funcion getPokedex devuelve correctamente un array de Pokedex', async () => {
@@ -29,7 +30,7 @@ describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
       { name: 'ivysaur', url: 'https://pokeapi.co/api/v2/pokemon/2/' },
       { name: 'venusaur', url: 'https://pokeapi.co/api/v2/pokemon/3/' },
     ]
-    const pokedex = await pokemonAPIRepository.getPokedex()
+    const pokedex = await pokemonHybridRepository.getPokedex()
 
     expect(pokedex).toStrictEqual(expectedPokedex)
   })
@@ -41,14 +42,15 @@ describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
     mock.onGet('https://pokeapi.co/api/v2/pokemon/1/').reply(200, pokemonDTO)
 
     const expectedPokemon: Pokemon = new PokemonBuilder().build()
-
+    const pokedex: Pokedex = {
+      name: 'bulbasaur',
+      url: 'https://pokeapi.co/api/v2/pokemon/1/',
+    }
     const mockeMap = vi
       .spyOn(mapService, 'mapPokemonDTOToPokemon')
       .mockReturnValueOnce(expectedPokemon)
 
-    const pokemon = await pokemonAPIRepository.getPokemon(
-      'https://pokeapi.co/api/v2/pokemon/1/',
-    )
+    const pokemon = await pokemonHybridRepository.getPokemon(pokedex)
     expect(mockeMap).toHaveBeenCalledWith(pokemonDTO)
     expect(pokemon).toStrictEqual(expectedPokemon)
   })
