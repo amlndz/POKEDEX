@@ -1,4 +1,5 @@
 .form {
+  justify-self: center;
   background-color: #eaeaeb;
   height: 48px;
   display: flex;

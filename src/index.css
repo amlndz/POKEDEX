@@ -38,6 +38,7 @@ html,
 main {
   display: grid;
   justify-content: center;
+  align-content: center;
 }
 
 @media (max-width: 768px) {
