@@ -36,9 +36,9 @@ html,
 }
 
 main {
+  flex: 1;
   display: grid;
   justify-content: center;
-  align-content: center;
 }
 
 @media (max-width: 768px) {
