@@ -24,7 +24,7 @@ export const SearchedBox: React.FC<SearchedBoxProps> = ({ onChange }) => {
         className={styles.inputNombre}
         placeholder="Search a Pokemon..."
         onChange={event => {
-          onChange(event.target.value)
+          onChange(event.target.value.trim())
         }}
       />
     </form>
