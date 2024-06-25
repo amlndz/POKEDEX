@@ -20,7 +20,7 @@ const testAPIRepo: PokemonRepository = {
 test('Comprobar que la funcion obtainPokemon del Service devuelve un Pokemon', async () => {
   pokemonService.init(testAPIRepo)
 
-  const pokemons = await pokemonService.obtainPokemons()
+  const pokemons = await pokemonService.obtainPokemons('kanto')
 
   const expectedPokemons = [new PokemonBuilder().build()]
   expect(pokemons).toStrictEqual(expectedPokemons)

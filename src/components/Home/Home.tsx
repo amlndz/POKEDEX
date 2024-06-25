@@ -35,7 +35,7 @@ export const Home = () => {
       <div className={style.containerSearch}>
         <SearchedBox onChange={setHasSearched} />
         <TypeSelector typeFilter={typeFilter} onTypeSelected={setTypeFilter} />
-        <GenSelector setGenFilter={setGenFilter} />
+        <GenSelector onGenSelected={setGenFilter} />
       </div>
       <div className={style.containerCardsList}>
         <CardList
