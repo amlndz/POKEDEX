@@ -169,6 +169,10 @@
   }
 }
 
+.multiselect {
+  display: flex;
+  justify-content: center;
+}
 .pokemonTypeSelector {
   display: flex;
   align-items: center;
