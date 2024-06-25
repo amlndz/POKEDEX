@@ -14,7 +14,7 @@ export const Home = () => {
   const [hasLoaded, setHasLoaded] = useState(true)
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [typeFilter, setTypeFilter] = useState<PokemonType[]>([])
-  const [genFilter, setGenFilter] = useState<Generation>('sinnoh')
+  const [genFilter, setGenFilter] = useState<Generation>('kanto')
   useEffect(() => {
     const fetchPokedex = async () => {
       try {

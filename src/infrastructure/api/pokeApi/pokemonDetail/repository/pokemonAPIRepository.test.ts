@@ -7,6 +7,7 @@ import { PokemonDTO } from '../domain/pokemonDTO'
 import { PokemonBuilder } from '../../../../../../tests/builders/pokemonBuilder'
 import { pokemonHybridRepository } from '../../../../localStorage/repository/pokemonHybridRepository'
 import { Pokedex } from '../../../../../domain/models/Pokedex'
+import { pokemonAPIRepository } from './pokemonAPIRepository'
 
 describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
   test('Comprobar que la funcion getPokedex devuelve correctamente un array de Pokedex', async () => {
@@ -30,7 +31,8 @@ describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
       { name: 'ivysaur', url: 'https://pokeapi.co/api/v2/pokemon/2/' },
       { name: 'venusaur', url: 'https://pokeapi.co/api/v2/pokemon/3/' },
     ]
-    const pokedex = await pokemonHybridRepository.getPokedexByGen('kanto')
+
+    const pokedex = await pokemonAPIRepository.getPokedexByGen('kanto')
 
     expect(pokedex).toStrictEqual(expectedPokedex)
   })
