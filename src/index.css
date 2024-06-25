@@ -39,6 +39,7 @@ main {
   flex: 1;
   display: grid;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 768px) {

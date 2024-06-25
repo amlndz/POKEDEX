@@ -1,7 +1,12 @@
-import { PokemonType } from '../../domain/models/Pokemon'
+import React from 'react'
 import { MultiSelect } from 'primereact/multiselect'
-import styles from '../Cards/PokemonCard/PokemonCard.module.css' // Importa los estilos de las cards de Pokémon
+import styles from '../Cards/PokemonCard/PokemonCard.module.css'
+import { PokemonType } from '../../domain/models/Pokemon'
 import { PokemonColorIcon } from '../Cards/PokemonColorIcon'
+import 'primeicons/primeicons.css'
+import 'primeflex/primeflex.css'
+import 'primereact/resources/primereact.css'
+import 'primereact/resources/themes/lara-light-indigo/theme.css'
 
 type FilterSelectorProps = {
   typeFilter: PokemonType[]
@@ -39,9 +44,9 @@ export const FilterSelector: React.FC<FilterSelectorProps> = ({
   ]
 
   const handleChange = (e: { value: Option[] }) => {
-    let selectedTypes = e.value.map(option => option.name)
+    let selectedTypes = e.value ? e.value.map(option => option.name) : []
     if (selectedTypes.length > 2) {
-      selectedTypes = selectedTypes.slice(0, 2) // Limita a máximo dos selecciones
+      selectedTypes = selectedTypes.slice(0, 2)
     }
     setTypeFilter(selectedTypes)
   }
@@ -51,10 +56,9 @@ export const FilterSelector: React.FC<FilterSelectorProps> = ({
   )
 
   return (
-    <div className={styles['filter-selector']}>
-      {' '}
-      {/* Nuevo contenedor para estilos personalizados */}
+    <div className={styles.multiselect}>
       <MultiSelect
+        className={styles.pokemonTypeSelector}
         value={selectedOptions}
         onChange={handleChange}
         options={options}
@@ -64,7 +68,6 @@ export const FilterSelector: React.FC<FilterSelectorProps> = ({
         maxSelectedLabels={2}
         selectedItemsLabel="selected"
         showSelectAll={false}
-        className={styles['pokemon-pills']} // Aplica el estilo de los pills de los tipos de Pokémon
         itemTemplate={(option: Option) => (
           <div
             className={styles['pokemon-type']}
@@ -72,12 +75,27 @@ export const FilterSelector: React.FC<FilterSelectorProps> = ({
           >
             <img
               src={PokemonColorIcon[option.name].icon}
+              alt={`${option.name} icon`}
               className={styles['type-icon']}
             />
             <span>{option.name}</span>
           </div>
         )}
-        panelClassName={styles['filter-panel']} // Estilos para el panel desplegable
+        selectedItemTemplate={(option: Option) =>
+          option ? (
+            <div
+              className={`${styles['pokemon-type']} ${styles['selected-type']}`}
+              style={{ backgroundColor: PokemonColorIcon[option.name].color }}
+            >
+              <img
+                src={PokemonColorIcon[option.name].icon}
+                alt={`${option.name} icon`}
+                className={styles['type-icon']}
+              />
+              <span>{option.name}</span>
+            </div>
+          ) : null
+        }
       />
     </div>
   )

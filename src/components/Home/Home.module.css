@@ -6,8 +6,7 @@
 }
 .containerSearch {
   display: flex;
-
-  justify-items: center;
+  gap: 20px;
 }
 
 @media (width > 1300px) {
@@ -23,5 +22,18 @@
   .containerCardsList {
     gap: 20px;
     margin: 0rem 1rem 2rem 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .containerSearch {
+    margin: 64px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerSearch {
+    flex-direction: column;
+    margin: 40px 1rem;
   }
 }
