@@ -13,7 +13,7 @@ const getPokemon = async (): Promise<Pokemon> => {
 }
 
 const testAPIRepo: PokemonRepository = {
-  getPokedex,
+  getPokedexByGen: getPokedex,
   getPokemon,
 }
 

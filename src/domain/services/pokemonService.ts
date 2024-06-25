@@ -5,7 +5,7 @@ import { PokemonRepository } from '../repository/PokemonRepository'
 let repo: PokemonRepository
 
 const obtainPokemons = async (generation: Generation): Promise<Pokemon[]> => {
-  const pokedexDTO = await repo.getPokedex(generation)
+  const pokedexDTO = await repo.getPokedexByGen(generation)
   const pokemonsData = await Promise.all(
     pokedexDTO.map(async pokemonDTO => {
       const pokemonDetail = await repo.getPokemon(pokemonDTO)

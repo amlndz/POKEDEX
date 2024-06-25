@@ -8,7 +8,7 @@ const getPokedex = async (): Promise<Pokedex[]> => {
   if (storedPokedex) {
     return JSON.parse(storedPokedex)
   }
-  return pokemonAPIRepository.getPokedex()
+  return pokemonAPIRepository.getPokedexByGen()
 }
 
 const getPokemon = async (pokedex: Pokedex): Promise<Pokemon> => {
@@ -20,6 +20,6 @@ const getPokemon = async (pokedex: Pokedex): Promise<Pokemon> => {
 }
 
 export const pokemonHybridRepository: PokemonRepository = {
-  getPokedex,
+  getPokedexByGen: getPokedex,
   getPokemon,
 }

@@ -8,7 +8,7 @@ import { PokemonRepository } from '../../../../../domain/repository/PokemonRepos
 import { Generation } from '../../../../../domain/models/Generacion'
 import { GENERATIONS_GUIDE } from '../../generation/generation'
 
-const getPokedex = async (generation: Generation): Promise<Pokedex[]> => {
+const getPokedexByGen = async (generation: Generation): Promise<Pokedex[]> => {
   const offset = GENERATIONS_GUIDE[generation].offset
   const limit = GENERATIONS_GUIDE[generation].limit
   const response = await axios.get<PokedexDTO>(
@@ -28,6 +28,6 @@ const getPokemon = async (pokemonDTO: Pokedex): Promise<Pokemon> => {
 }
 
 export const pokemonAPIRepository: PokemonRepository = {
-  getPokedex,
+  getPokedexByGen: getPokedexByGen,
   getPokemon,
 }
