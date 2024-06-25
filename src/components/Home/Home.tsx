@@ -14,7 +14,7 @@ export const Home = () => {
   const [hasLoaded, setHasLoaded] = useState(true)
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [typeFilter, setTypeFilter] = useState<PokemonType[]>([])
-  const [genFilter, setGenFilter] = useState<Generation>('kanto')
+  const [genFilter, setGenFilter] = useState<Generation>('sinnoh')
   useEffect(() => {
     const fetchPokedex = async () => {
       try {
@@ -34,7 +34,7 @@ export const Home = () => {
     <>
       <div className={style.containerSearch}>
         <SearchedBox onChange={setHasSearched} />
-        <TypeSelector typeFilter={typeFilter} setTypeFilter={setTypeFilter} />
+        <TypeSelector typeFilter={typeFilter} onTypeSelected={setTypeFilter} />
         <GenSelector setGenFilter={setGenFilter} />
       </div>
       <div className={style.containerCardsList}>

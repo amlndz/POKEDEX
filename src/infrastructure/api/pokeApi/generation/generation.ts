@@ -1,11 +1,12 @@
 import { Generation } from '../../../../domain/models/Generacion'
 
-type Guide = {
-  offset: number
-  limit: number
-}
-
-export const GENERATIONS_GUIDE: Record<Generation, Guide> = {
+export const GENERATIONS_GUIDE: Record<
+  Generation,
+  {
+    offset: number
+    limit: number
+  }
+> = {
   kanto: {
     offset: 0,
     limit: 151,

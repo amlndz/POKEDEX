@@ -10,7 +10,7 @@ import 'primereact/resources/themes/lara-light-indigo/theme.css'
 
 type FilterSelectorProps = {
   typeFilter: PokemonType[]
-  setTypeFilter: (pokemonsType: PokemonType[]) => void
+  onTypeSelected: (pokemonsType: PokemonType[]) => void
 }
 
 type Option = {
@@ -20,7 +20,7 @@ type Option = {
 
 export const TypeSelector: React.FC<FilterSelectorProps> = ({
   typeFilter,
-  setTypeFilter,
+  onTypeSelected,
 }) => {
   const options: Option[] = [
     { name: 'grass', code: 'grass' },
@@ -48,7 +48,7 @@ export const TypeSelector: React.FC<FilterSelectorProps> = ({
     if (selectedTypes.length > 2) {
       selectedTypes = selectedTypes.slice(0, 2)
     }
-    setTypeFilter(selectedTypes)
+    onTypeSelected(selectedTypes)
   }
 
   const selectedOptions = options.filter(option =>

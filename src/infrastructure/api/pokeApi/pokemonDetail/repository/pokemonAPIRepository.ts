@@ -5,11 +5,12 @@ import { PokemonDTO } from '../domain/pokemonDTO'
 import { PokedexDTO } from '../../pokedex/domain/pokedexDTO'
 import { Pokedex } from '../../../../../domain/models/Pokedex'
 import { PokemonRepository } from '../../../../../domain/repository/PokemonRepository'
+import { Generation } from '../../../../../domain/models/Generacion'
+import { GENERATIONS_GUIDE } from '../../generation/generation'
 
-const getPokedex = async (
-  offset: number,
-  limit: number,
-): Promise<Pokedex[]> => {
+const getPokedex = async (generation: Generation): Promise<Pokedex[]> => {
+  const offset = GENERATIONS_GUIDE[generation].offset
+  const limit = GENERATIONS_GUIDE[generation].limit
   const response = await axios.get<PokedexDTO>(
     `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`,
   )
