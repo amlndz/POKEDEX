@@ -2,9 +2,9 @@ import { Header } from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
 import { pokemonService } from './domain/services/pokemonService'
 import { Home } from './components/Home/Home'
-import { pokemonHybridRepository } from './infrastructure/localStorage/repository/pokemonHybridRepository'
+import { pokemonAPIRepository } from './infrastructure/api/pokeApi/pokemonDetail/repository/pokemonAPIRepository'
 
-pokemonService.init(pokemonHybridRepository)
+pokemonService.init(pokemonAPIRepository)
 
 function App() {
   return (

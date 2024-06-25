@@ -4,7 +4,9 @@ import { SearchedBox } from '../SearchedBox/SearchedBox'
 import { Pokemon, PokemonType } from '../../domain/models/Pokemon'
 import { pokemonService } from '../../domain/services/pokemonService'
 import style from './Home.module.css'
-import { FilterSelector } from '../FilterSelector/FilterSelector'
+import { TypeSelector } from '../TypeSelector/TypeSelector'
+import { GenSelector } from '../GenSelector/GenSelector'
+import { Generation } from '../../domain/models/Generacion'
 
 export const Home = () => {
   const [hasSearched, setHasSearched] = useState('')
@@ -12,11 +14,11 @@ export const Home = () => {
   const [hasLoaded, setHasLoaded] = useState(true)
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [typeFilter, setTypeFilter] = useState<PokemonType[]>([])
-
+  const [genFilter, setGenFilter] = useState<Generation>('kanto')
   useEffect(() => {
     const fetchPokedex = async () => {
       try {
-        const pokemonsData = await pokemonService.obtainPokemons()
+        const pokemonsData = await pokemonService.obtainPokemons(genFilter)
         setPokemons(pokemonsData)
       } catch (error) {
         setHasApiError(true)
@@ -32,7 +34,8 @@ export const Home = () => {
     <>
       <div className={style.containerSearch}>
         <SearchedBox onChange={setHasSearched} />
-        <FilterSelector typeFilter={typeFilter} setTypeFilter={setTypeFilter} />
+        <TypeSelector typeFilter={typeFilter} setTypeFilter={setTypeFilter} />
+        <GenSelector setGenFilter={setGenFilter} />
       </div>
       <div className={style.containerCardsList}>
         <CardList

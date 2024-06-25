@@ -18,7 +18,7 @@ type Option = {
   code: string
 }
 
-export const FilterSelector: React.FC<FilterSelectorProps> = ({
+export const TypeSelector: React.FC<FilterSelectorProps> = ({
   typeFilter,
   setTypeFilter,
 }) => {

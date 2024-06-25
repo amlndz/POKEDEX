@@ -6,11 +6,15 @@ import { PokedexDTO } from '../../pokedex/domain/pokedexDTO'
 import { Pokedex } from '../../../../../domain/models/Pokedex'
 import { PokemonRepository } from '../../../../../domain/repository/PokemonRepository'
 
-const getPokedex = async (): Promise<Pokedex[]> => {
+const getPokedex = async (
+  offset: number,
+  limit: number,
+): Promise<Pokedex[]> => {
   const response = await axios.get<PokedexDTO>(
-    'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0',
+    `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`,
   )
   const pokedex = response.data.results
+  console.log('RESPUESTA: ' + JSON.stringify(pokedex))
   localStorage.setItem('pokedex', JSON.stringify(pokedex))
   return pokedex
 }
