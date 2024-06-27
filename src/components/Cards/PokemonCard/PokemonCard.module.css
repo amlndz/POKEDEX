@@ -173,6 +173,7 @@
   display: flex;
   justify-content: center;
 }
+
 .pokemonTypeSelector {
   display: flex;
   align-items: center;
@@ -184,4 +185,25 @@
 .selected-type {
   margin: 3px;
   width: 5rem;
+}
+.selected-gen {
+  margin: 3px;
+  width: 5rem;
+}
+.pokemon-gen {
+  display: flex;
+  align-items: center;
+
+  height: 20px;
+  padding: 4px 8px;
+  border-radius: 100px;
+  gap: 4px;
+  font-size: 12px;
+}
+.pokemonGenSelector {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  height: 60px;
+  width: 200px;
 }

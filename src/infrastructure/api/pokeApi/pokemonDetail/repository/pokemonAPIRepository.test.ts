@@ -32,7 +32,7 @@ describe('Comprobar funcionamiento del pokemonAPIRepository', () => {
       { name: 'venusaur', url: 'https://pokeapi.co/api/v2/pokemon/3/' },
     ]
 
-    const pokedex = await pokemonAPIRepository.getPokedexByGen('kanto')
+    const pokedex = await pokemonAPIRepository.getPokedexByGen('Kanto')
 
     expect(pokedex).toStrictEqual(expectedPokedex)
   })

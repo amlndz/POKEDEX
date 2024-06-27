@@ -29,11 +29,20 @@
   .containerSearch {
     margin: 64px 12px;
   }
+  .selectors {
+    display: flex;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
   .containerSearch {
     flex-direction: column;
     margin: 40px 1rem;
+  }
+  .selectors {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }

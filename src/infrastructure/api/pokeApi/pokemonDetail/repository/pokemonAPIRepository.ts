@@ -4,7 +4,7 @@ import { mapPokemonDTOToPokemon } from '../mapper/pokemonMapper'
 import { PokemonDTO } from '../domain/pokemonDTO'
 import { PokedexDTO } from '../../pokedex/domain/pokedexDTO'
 import { Pokedex } from '../../../../../domain/models/Pokedex'
-import { PokemonRepository } from '../../../../../domain/repository/PokemonRepository'
+import { PokemonRepository } from '../../../../../domain/repository/pokemonRepository'
 import { Generation } from '../../../../../domain/models/Generacion'
 import { GENERATIONS_GUIDE } from '../../generation/generation'
 
@@ -29,5 +29,5 @@ const getPokemon = async (pokemonDTO: Pokedex): Promise<Pokemon> => {
 
 export const pokemonAPIRepository: PokemonRepository = {
   getPokedexByGen: getPokedexByGen,
-  getPokemon,
+  getPokemon: getPokemon,
 }

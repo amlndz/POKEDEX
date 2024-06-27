@@ -7,35 +7,35 @@ export const GENERATIONS_GUIDE: Record<
     limit: number
   }
 > = {
-  kanto: {
+  Kanto: {
     offset: 0,
     limit: 151,
   },
-  johto: {
+  Johto: {
     offset: 151,
     limit: 100,
   },
-  hoenn: {
+  Hoenn: {
     offset: 251,
     limit: 135,
   },
-  sinnoh: {
+  Sinnoh: {
     offset: 386,
     limit: 107,
   },
-  teselia: {
+  Teselia: {
     offset: 493,
     limit: 156,
   },
-  kalos: {
+  Kalos: {
     offset: 649,
     limit: 72,
   },
-  alola: {
+  Alola: {
     offset: 721,
     limit: 88,
   },
-  galar: {
+  Galar: {
     offset: 809,
     limit: 89,
   },

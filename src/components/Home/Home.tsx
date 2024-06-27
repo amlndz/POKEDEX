@@ -14,11 +14,17 @@ export const Home = () => {
   const [hasLoaded, setHasLoaded] = useState(true)
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [typeFilter, setTypeFilter] = useState<PokemonType[]>([])
-  const [genFilter, setGenFilter] = useState<Generation>('kanto')
+  const [genFilter, setGenFilter] = useState<Generation[]>(['Kanto'])
+
   useEffect(() => {
     const fetchPokedex = async () => {
+      setHasLoaded(true)
       try {
-        const pokemonsData = await pokemonService.obtainPokemons(genFilter)
+        let pokemonsData: Pokemon[] = []
+        for (const gen of genFilter) {
+          const data = await pokemonService.obtainPokemons(gen)
+          pokemonsData = [...pokemonsData, ...data]
+        }
         setPokemons(pokemonsData)
       } catch (error) {
         setHasApiError(true)
@@ -28,14 +34,19 @@ export const Home = () => {
       }
     }
     fetchPokedex()
-  }, [])
+  }, [genFilter])
 
   return (
     <>
       <div className={style.containerSearch}>
         <SearchedBox onChange={setHasSearched} />
-        <TypeSelector typeFilter={typeFilter} onTypeSelected={setTypeFilter} />
-        <GenSelector onGenSelected={setGenFilter} />
+        <div className={style.selectors}>
+          <TypeSelector
+            typeFilter={typeFilter}
+            onTypeSelected={setTypeFilter}
+          />
+          <GenSelector genFilter={genFilter} onGenSelected={setGenFilter} />
+        </div>
       </div>
       <div className={style.containerCardsList}>
         <CardList

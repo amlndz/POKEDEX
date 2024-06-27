@@ -1,5 +1,5 @@
 import { pokemonService } from './pokemonService'
-import { PokemonRepository } from '../repository/PokemonRepository'
+import { PokemonRepository } from '../repository/pokemonRepository'
 import { Pokedex } from '../models/Pokedex'
 import { Pokemon } from '../models/Pokemon'
 import { PokemonBuilder } from '../../../tests/builders/pokemonBuilder'
@@ -20,7 +20,7 @@ const testAPIRepo: PokemonRepository = {
 test('Comprobar que la funcion obtainPokemon del Service devuelve un Pokemon', async () => {
   pokemonService.init(testAPIRepo)
 
-  const pokemons = await pokemonService.obtainPokemons('kanto')
+  const pokemons = await pokemonService.obtainPokemons('Kanto')
 
   const expectedPokemons = [new PokemonBuilder().build()]
   expect(pokemons).toStrictEqual(expectedPokemons)
