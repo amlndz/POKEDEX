@@ -1,7 +1,7 @@
 import { Generation } from '../../../domain/models/Generacion'
 import { Pokedex } from '../../../domain/models/Pokedex'
 import { Pokemon } from '../../../domain/models/Pokemon'
-import { PokemonRepository } from '../../../domain/repository/pokemonRepository'
+import { PokemonRepository } from '../../../domain/repository/PokemonRepository'
 import { pokemonAPIRepository } from '../../api/pokeApi/pokemonDetail/repository/pokemonAPIRepository'
 
 const getPokedexByGen = async (generation: Generation): Promise<Pokedex[]> => {

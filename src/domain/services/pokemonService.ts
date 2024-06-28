@@ -1,6 +1,6 @@
 import { Generation } from '../models/Generacion'
 import { Pokemon } from '../models/Pokemon'
-import { PokemonRepository } from '../repository/pokemonRepository'
+import { PokemonRepository } from '../repository/PokemonRepository'
 
 let repo: PokemonRepository
 

@@ -1,5 +1,5 @@
 import { pokemonService } from './pokemonService'
-import { PokemonRepository } from '../repository/pokemonRepository'
+import { PokemonRepository } from '../repository/PokemonRepository'
 import { Pokedex } from '../models/Pokedex'
 import { Pokemon } from '../models/Pokemon'
 import { PokemonBuilder } from '../../../tests/builders/pokemonBuilder'

@@ -4,7 +4,7 @@ import { mapPokemonDTOToPokemon } from '../mapper/pokemonMapper'
 import { PokemonDTO } from '../domain/pokemonDTO'
 import { PokedexDTO } from '../../pokedex/domain/pokedexDTO'
 import { Pokedex } from '../../../../../domain/models/Pokedex'
-import { PokemonRepository } from '../../../../../domain/repository/pokemonRepository'
+import { PokemonRepository } from '../../../../../domain/repository/PokemonRepository'
 import { Generation } from '../../../../../domain/models/Generacion'
 import { GENERATIONS_GUIDE } from '../../generation/generation'
 
