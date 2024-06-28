@@ -215,7 +215,7 @@ describe('Test Home', () => {
 })
 
 describe('Testear filtro de pokemons por generacion', async () => {
-  it('Dada una generacion se muestran solo los pokemons de esa generacion', () => {
+  it('Por defecto se muestra la generacion de Kanto', () => {
     const bulbasaur = new PokemonBuilder().build()
 
     const serviceMock = vi
