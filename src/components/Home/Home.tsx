@@ -20,10 +20,10 @@ export const Home = () => {
     const fetchPokedex = async () => {
       setHasLoaded(true)
       try {
-        let pokemonsData: Pokemon[] = []
+        const pokemonsData: Pokemon[] = []
         for (const gen of genFilter) {
           const data = await pokemonService.obtainPokemons(gen)
-          pokemonsData = [...pokemonsData, ...data]
+          pokemonsData.push(...data)
         }
         setPokemons(pokemonsData)
       } catch (error) {
