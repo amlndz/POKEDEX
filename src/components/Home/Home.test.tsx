@@ -213,3 +213,17 @@ describe('Test Home', () => {
     })
   })
 })
+
+describe('Testear filtro de pokemons por generacion', async () => {
+  it('Dada una generacion se muestran solo los pokemons de esa generacion', () => {
+    const bulbasaur = new PokemonBuilder().build()
+
+    const serviceMock = vi
+      .spyOn(pokemonService, 'obtainPokemons')
+      .mockResolvedValue([bulbasaur])
+
+    render(<Home />)
+    expect(serviceMock).toHaveBeenCalledTimes(1)
+    expect(screen.getByText('Kanto')).toBeInTheDocument()
+  })
+})
