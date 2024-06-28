@@ -16,7 +16,7 @@ const getPokedexByGen = async (generation: Generation): Promise<Pokedex[]> => {
   )
   const pokedex = response.data.results
   console.log('RESPUESTA: ' + JSON.stringify(pokedex))
-  localStorage.setItem('pokedex', JSON.stringify(pokedex))
+  localStorage.setItem(generation, JSON.stringify(pokedex))
   return pokedex
 }
 

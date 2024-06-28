@@ -1,14 +1,15 @@
+import { Generation } from '../../../domain/models/Generacion'
 import { Pokedex } from '../../../domain/models/Pokedex'
 import { Pokemon } from '../../../domain/models/Pokemon'
-import { PokemonRepository } from '../../../domain/repository/PokemonRepository'
+import { PokemonRepository } from '../../../domain/repository/pokemonRepository'
 import { pokemonAPIRepository } from '../../api/pokeApi/pokemonDetail/repository/pokemonAPIRepository'
 
-const getPokedex = async (): Promise<Pokedex[]> => {
-  const storedPokedex = localStorage.getItem('pokedex')
+const getPokedexByGen = async (generation: Generation): Promise<Pokedex[]> => {
+  const storedPokedex = localStorage.getItem(generation)
   if (storedPokedex) {
     return JSON.parse(storedPokedex)
   }
-  return pokemonAPIRepository.getPokedexByGen()
+  return pokemonAPIRepository.getPokedexByGen(generation)
 }
 
 const getPokemon = async (pokedex: Pokedex): Promise<Pokemon> => {
@@ -20,6 +21,6 @@ const getPokemon = async (pokedex: Pokedex): Promise<Pokemon> => {
 }
 
 export const pokemonHybridRepository: PokemonRepository = {
-  getPokedexByGen: getPokedex,
+  getPokedexByGen: getPokedexByGen,
   getPokemon,
 }

@@ -54,7 +54,6 @@ export const GenSelector: React.FC<GenSelectorProps> = ({
         placeholder="Select Generation"
         maxSelectedLabels={2}
         selectedItemsLabel="selected"
-        showSelectAll={false}
         itemTemplate={(option: Option) => (
           <div className={styles['pokemon-gen']}>
             <span>{option.name}</span>
