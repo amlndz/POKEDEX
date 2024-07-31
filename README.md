@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# POKEDEX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Jxpert - software development training - JAKALA
 
-Currently, two official plugins are available:
+-----
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Final project of the software development training at Jxpert conducted by the company Jakala.
+The project consists of a Pokédex that gathers information from the POKEAPI and displays it to users along with type and generation filters.
+The important aspect of the project, beyond the Pokédex itself, was to develop high-quality and easily scalable software, based on a hexagonal architecture for project organization, ensuring good test coverage.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-----
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+![image](https://github.com/user-attachments/assets/5689c665-90b9-4590-ae90-cb201f5f1dd8)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![image](https://github.com/user-attachments/assets/21f2e48b-6d70-41dc-baf0-47f74b038ee1)
+
+![image](https://github.com/user-attachments/assets/3c2503a6-41c7-479a-b9cd-95f0b767aa42)
+
+![image](https://github.com/user-attachments/assets/2a3e29bb-0c49-4939-8008-b171f1d62da5)
+
+![image](https://github.com/user-attachments/assets/b8f15ccb-1b06-463d-a8da-63aae25f6050)
+
+![image](https://github.com/user-attachments/assets/39e37f09-3ad9-4ccf-a55d-76b0e8b697cf)
+
+![image](https://github.com/user-attachments/assets/6bbdd579-0e6d-497e-bbad-72fc8bda7248)
+
+![image](https://github.com/user-attachments/assets/61bb1aba-212c-4499-b2c2-1d2594a7d8b0)
